@@ -1,0 +1,31 @@
+﻿@model CameraShop.Models.TinTuc
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <div>
+        <div style="Color:Orange;font-size:14pt;">@Html.DisplayFor(model => model.TieuDe)</div>
+        <div style="margin-left:20px;Color:red;font-size:9pt;">Ngày đăng @Model.NgayDang.ToString("dd-MMM-yyyy")</div>
+        <div style="font-size:12pt;">@Html.DisplayTextFor(model=> model.NoiDung) </div>
+
+    </div>
+</div>
+<div style="color:#e7e7e7;font-size:14pt;font-weight:bold;">-------------------------------------------------------------------</div>
+<div>
+   <span style="font-size:14pt;font-weight:bold;">Các tin khuyến mãi khác</span>
+   <div style="margin-left:20px;text-decoration:none;">
+     @foreach (CameraShop.Models.TinTuc temp in ViewBag.listTT)
+     {
+        <p> @Html.ActionLink(temp.TieuDe, "Details", new { id =temp.MaTinTuc }) </p>
+     }
+  </div>
+ </div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.MaTinTuc}) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

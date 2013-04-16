@@ -1,0 +1,14 @@
+﻿@model IEnumerable<CameraShop.Models.NhaSanXuat> 
+ 
+ <ul>
+    @if (Model != null)
+    {
+     foreach (var loaisp in Model)
+     {
+         <li>
+         <a href="@Url.Content("~/DanhSachSanPham/NhaSanXuat/"+loaisp.MaNhaSanXuat)">@loaisp.TenNhaSanXuat</a>
+        
+         </li>
+     }
+    }
+</ul>

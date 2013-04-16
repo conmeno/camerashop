@@ -1,0 +1,127 @@
+﻿@model CameraShop.Models.SanPham
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>Create</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+ 
+ <script src="@Url.Content("~/Scripts/jquery-ui-1.8.11.js")" type="text/javascript"></script>
+<link href="@Url.Content("~/Content/themes/base/jquery.ui.all.css")" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $("#NgayDang").datepicker(); 
+    });
+</script>
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>SanPham</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MaSanPham)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MaSanPham)
+            @Html.ValidationMessageFor(model => model.MaSanPham)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MaDongSanPham, "DongSanPham")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("MaDongSanPham", String.Empty)
+            @Html.ValidationMessageFor(model => model.MaDongSanPham)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MaLoaiSanPham, "LoaiSanPham")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("MaLoaiSanPham", String.Empty)
+            @Html.ValidationMessageFor(model => model.MaLoaiSanPham)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MaKhuyenMai, "KhuyenMai")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("MaKhuyenMai", String.Empty)
+            @Html.ValidationMessageFor(model => model.MaKhuyenMai)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TenSanPham)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TenSanPham)
+            @Html.ValidationMessageFor(model => model.TenSanPham)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.GiaBan)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.GiaBan)
+            @Html.ValidationMessageFor(model => model.GiaBan)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NgayDang)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NgayDang)
+            @Html.ValidationMessageFor(model => model.NgayDang)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SoLuong)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SoLuong)
+            @Html.ValidationMessageFor(model => model.SoLuong)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TinhTrang)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TinhTrang)
+            @Html.ValidationMessageFor(model => model.TinhTrang)
+        </div>
+        <div style="margin-top:10px;">
+        <table>
+        @{
+            var ThongSo = ViewBag.ThongSo as List<CameraShop.Models.ThongSo>;   
+        }
+        @for (int i = 0; i < ThongSo.Count; i++)
+        {
+            <tr>
+            <td>
+                <p>@ThongSo[i].TenThongSo</p>
+            </td>
+            <td>
+                
+                <input type="text" name="ChiTietThongSoes[@i].GiaTri"/>
+                 <input type="hidden" name="ChiTietThongSoes[@i].MaThongSo" value="@ThongSo[i].MaThongSo"/>
+                 
+            </td>
+            </tr>
+        }
+        </table>
+        </div>
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+ 
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

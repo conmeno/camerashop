@@ -1,0 +1,461 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CameraShopModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="CameraShopEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AnhSanPhams" EntityType="CameraShopModel.AnhSanPham" />
+    <EntitySet Name="ChiTietDonDatHangs" EntityType="CameraShopModel.ChiTietDonDatHang" />
+    <EntitySet Name="ChiTietNhomNguoiDungs" EntityType="CameraShopModel.ChiTietNhomNguoiDung" />
+    <EntitySet Name="ChiTietThongSoes" EntityType="CameraShopModel.ChiTietThongSo" />
+    <EntitySet Name="DonDatHangs" EntityType="CameraShopModel.DonDatHang" />
+    <EntitySet Name="DongSanPhams" EntityType="CameraShopModel.DongSanPham" />
+    <EntitySet Name="HoaDons" EntityType="CameraShopModel.HoaDon" />
+    <EntitySet Name="KhuyenMais" EntityType="CameraShopModel.KhuyenMai" />
+    <EntitySet Name="LoaiSanPhams" EntityType="CameraShopModel.LoaiSanPham" />
+    <EntitySet Name="NguoiDungs" EntityType="CameraShopModel.NguoiDung" />
+    <EntitySet Name="NhaSanXuats" EntityType="CameraShopModel.NhaSanXuat" />
+    <EntitySet Name="NhomNguoiDungs" EntityType="CameraShopModel.NhomNguoiDung" />
+    <EntitySet Name="SanPhams" EntityType="CameraShopModel.SanPham" />
+    <EntitySet Name="TaiKhoans" EntityType="CameraShopModel.TaiKhoan" />
+    <EntitySet Name="ThongSoes" EntityType="CameraShopModel.ThongSo" />
+    <EntitySet Name="TinTucs" EntityType="CameraShopModel.TinTuc" />
+    <AssociationSet Name="FK_AnhSanPham_SanPham" Association="CameraShopModel.FK_AnhSanPham_SanPham">
+      <End Role="SanPham" EntitySet="SanPhams" />
+      <End Role="AnhSanPham" EntitySet="AnhSanPhams" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChiTietDonDatHang_DonDatHang" Association="CameraShopModel.FK_ChiTietDonDatHang_DonDatHang">
+      <End Role="DonDatHang" EntitySet="DonDatHangs" />
+      <End Role="ChiTietDonDatHang" EntitySet="ChiTietDonDatHangs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChiTietDonDatHang_SanPham" Association="CameraShopModel.FK_ChiTietDonDatHang_SanPham">
+      <End Role="SanPham" EntitySet="SanPhams" />
+      <End Role="ChiTietDonDatHang" EntitySet="ChiTietDonDatHangs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChiTietNhomNguoiDung_NguoiDung" Association="CameraShopModel.FK_ChiTietNhomNguoiDung_NguoiDung">
+      <End Role="NguoiDung" EntitySet="NguoiDungs" />
+      <End Role="ChiTietNhomNguoiDung" EntitySet="ChiTietNhomNguoiDungs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChiTietNhomNguoiDung_NhomNguoiDung" Association="CameraShopModel.FK_ChiTietNhomNguoiDung_NhomNguoiDung">
+      <End Role="NhomNguoiDung" EntitySet="NhomNguoiDungs" />
+      <End Role="ChiTietNhomNguoiDung" EntitySet="ChiTietNhomNguoiDungs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChiTietThongSo_SanPham" Association="CameraShopModel.FK_ChiTietThongSo_SanPham">
+      <End Role="SanPham" EntitySet="SanPhams" />
+      <End Role="ChiTietThongSo" EntitySet="ChiTietThongSoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChiTietThongSo_ThongSo" Association="CameraShopModel.FK_ChiTietThongSo_ThongSo">
+      <End Role="ThongSo" EntitySet="ThongSoes" />
+      <End Role="ChiTietThongSo" EntitySet="ChiTietThongSoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DonDatHang_NguoiDung" Association="CameraShopModel.FK_DonDatHang_NguoiDung">
+      <End Role="NguoiDung" EntitySet="NguoiDungs" />
+      <End Role="DonDatHang" EntitySet="DonDatHangs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HoaDon_DonDatHang" Association="CameraShopModel.FK_HoaDon_DonDatHang">
+      <End Role="DonDatHang" EntitySet="DonDatHangs" />
+      <End Role="HoaDon" EntitySet="HoaDons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DongSanPham_NhaSanXuat" Association="CameraShopModel.FK_DongSanPham_NhaSanXuat">
+      <End Role="NhaSanXuat" EntitySet="NhaSanXuats" />
+      <End Role="DongSanPham" EntitySet="DongSanPhams" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SanPham_DongSanPham" Association="CameraShopModel.FK_SanPham_DongSanPham">
+      <End Role="DongSanPham" EntitySet="DongSanPhams" />
+      <End Role="SanPham" EntitySet="SanPhams" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HoaDon_NguoiDung" Association="CameraShopModel.FK_HoaDon_NguoiDung">
+      <End Role="NguoiDung" EntitySet="NguoiDungs" />
+      <End Role="HoaDon" EntitySet="HoaDons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SanPham_KhuyenMai" Association="CameraShopModel.FK_SanPham_KhuyenMai">
+      <End Role="KhuyenMai" EntitySet="KhuyenMais" />
+      <End Role="SanPham" EntitySet="SanPhams" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SanPham_LoaiSanPham" Association="CameraShopModel.FK_SanPham_LoaiSanPham">
+      <End EntitySet="LoaiSanPhams" Role="LoaiSanPham" />
+      <End EntitySet="SanPhams" Role="SanPham" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TaiKhoan_NguoiDung" Association="CameraShopModel.FK_TaiKhoan_NguoiDung">
+      <End Role="NguoiDung" EntitySet="NguoiDungs" />
+      <End Role="TaiKhoan" EntitySet="TaiKhoans" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TinTuc_TaiKhoan" Association="CameraShopModel.FK_TinTuc_TaiKhoan">
+      <End Role="TaiKhoan" EntitySet="TaiKhoans" />
+      <End Role="TinTuc" EntitySet="TinTucs" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="AnhSanPham">
+    <Key>
+      <PropertyRef Name="MaHinhAnh" />
+    </Key>
+    <Property Name="MaHinhAnh" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="URL" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="MaSanPham" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="SanPham" Relationship="CameraShopModel.FK_AnhSanPham_SanPham" FromRole="AnhSanPham" ToRole="SanPham" />
+  </EntityType>
+  <EntityType Name="ChiTietDonDatHang">
+    <Key>
+      <PropertyRef Name="MaDonDatHang" />
+      <PropertyRef Name="MaSanPham" />
+    </Key>
+    <Property Name="MaDonDatHang" Type="Int32" Nullable="false" />
+    <Property Name="MaSanPham" Type="Int32" Nullable="false" />
+    <Property Name="SoLuong" Type="Int32" Nullable="false" />
+    <Property Name="DonGia" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="ThanhTien" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <NavigationProperty Name="DonDatHang" Relationship="CameraShopModel.FK_ChiTietDonDatHang_DonDatHang" FromRole="ChiTietDonDatHang" ToRole="DonDatHang" />
+    <NavigationProperty Name="SanPham" Relationship="CameraShopModel.FK_ChiTietDonDatHang_SanPham" FromRole="ChiTietDonDatHang" ToRole="SanPham" />
+  </EntityType>
+  <EntityType Name="ChiTietNhomNguoiDung">
+    <Key>
+      <PropertyRef Name="MaNguoiDung" />
+      <PropertyRef Name="MaNhomNguoiDung" />
+    </Key>
+    <Property Name="MaNguoiDung" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+    <Property Name="MaNhomNguoiDung" Type="Int32" Nullable="false" />
+    <Property Name="MoTa" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="NguoiDung" Relationship="CameraShopModel.FK_ChiTietNhomNguoiDung_NguoiDung" FromRole="ChiTietNhomNguoiDung" ToRole="NguoiDung" />
+    <NavigationProperty Name="NhomNguoiDung" Relationship="CameraShopModel.FK_ChiTietNhomNguoiDung_NhomNguoiDung" FromRole="ChiTietNhomNguoiDung" ToRole="NhomNguoiDung" />
+  </EntityType>
+  <EntityType Name="ChiTietThongSo">
+    <Key>
+      <PropertyRef Name="MaThongSo" />
+      <PropertyRef Name="MaSanPham" />
+    </Key>
+    <Property Name="MaThongSo" Type="Int32" Nullable="false" />
+    <Property Name="MaSanPham" Type="Int32" Nullable="false" />
+    <Property Name="GiaTri" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="SanPham" Relationship="CameraShopModel.FK_ChiTietThongSo_SanPham" FromRole="ChiTietThongSo" ToRole="SanPham" />
+    <NavigationProperty Name="ThongSo" Relationship="CameraShopModel.FK_ChiTietThongSo_ThongSo" FromRole="ChiTietThongSo" ToRole="ThongSo" />
+  </EntityType>
+  <EntityType Name="DonDatHang">
+    <Key>
+      <PropertyRef Name="MaDonDatHang" />
+    </Key>
+    <Property Name="MaDonDatHang" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaNguoiDung" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+    <Property Name="NgayLap" Type="DateTime" Nullable="false" />
+    <Property Name="ThueSuat" Type="Int32" Nullable="false" />
+    <Property Name="TongTien" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="TinhTrang" Type="Boolean" />
+    <NavigationProperty Name="ChiTietDonDatHangs" Relationship="CameraShopModel.FK_ChiTietDonDatHang_DonDatHang" FromRole="DonDatHang" ToRole="ChiTietDonDatHang" />
+    <NavigationProperty Name="NguoiDung" Relationship="CameraShopModel.FK_DonDatHang_NguoiDung" FromRole="DonDatHang" ToRole="NguoiDung" />
+    <NavigationProperty Name="HoaDons" Relationship="CameraShopModel.FK_HoaDon_DonDatHang" FromRole="DonDatHang" ToRole="HoaDon" />
+  </EntityType>
+  <EntityType Name="DongSanPham">
+    <Key>
+      <PropertyRef Name="MaDongSanPham" />
+    </Key>
+    <Property Name="MaDongSanPham" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaNhaSanXuat" Type="Int32" />
+    <Property Name="TenDongSanPham" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="NhaSanXuat" Relationship="CameraShopModel.FK_DongSanPham_NhaSanXuat" FromRole="DongSanPham" ToRole="NhaSanXuat" />
+    <NavigationProperty Name="SanPhams" Relationship="CameraShopModel.FK_SanPham_DongSanPham" FromRole="DongSanPham" ToRole="SanPham" />
+  </EntityType>
+  <EntityType Name="HoaDon">
+    <Key>
+      <PropertyRef Name="MaHoaDon" />
+    </Key>
+    <Property Name="MaHoaDon" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaDonDatHang" Type="Int32" Nullable="false" />
+    <Property Name="MaNhanVien" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+    <Property Name="NgayLap" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="DonDatHang" Relationship="CameraShopModel.FK_HoaDon_DonDatHang" FromRole="HoaDon" ToRole="DonDatHang" />
+    <NavigationProperty Name="NguoiDung" Relationship="CameraShopModel.FK_HoaDon_NguoiDung" FromRole="HoaDon" ToRole="NguoiDung" />
+  </EntityType>
+  <EntityType Name="KhuyenMai">
+    <Key>
+      <PropertyRef Name="MaKhuyenMai" />
+    </Key>
+    <Property Name="MaKhuyenMai" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenKhuyenMai" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="true" />
+    <Property Name="MoTa" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="NgayBatDau" Type="DateTime" Nullable="false" />
+    <Property Name="NgayKetThuc" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="SanPhams" Relationship="CameraShopModel.FK_SanPham_KhuyenMai" FromRole="KhuyenMai" ToRole="SanPham" />
+  </EntityType>
+  <EntityType Name="LoaiSanPham">
+    <Key>
+      <PropertyRef Name="MaLoaiSanPham" />
+    </Key>
+    <Property Name="MaLoaiSanPham" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+    <Property Name="TenLoaiSanPham" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+    <NavigationProperty Name="SanPhams" Relationship="CameraShopModel.FK_SanPham_LoaiSanPham" FromRole="LoaiSanPham" ToRole="SanPham" />
+  </EntityType>
+  <EntityType Name="NguoiDung">
+    <Key>
+      <PropertyRef Name="MaNguoiDung" />
+    </Key>
+    <Property Name="MaNguoiDung" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+    <Property Name="TenNguoiDung" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="GioiTinh" Type="Boolean" Nullable="false" />
+    <Property Name="DiaChi" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="DienThoai" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="NamSinh" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+    <NavigationProperty Name="ChiTietNhomNguoiDungs" Relationship="CameraShopModel.FK_ChiTietNhomNguoiDung_NguoiDung" FromRole="NguoiDung" ToRole="ChiTietNhomNguoiDung" />
+    <NavigationProperty Name="DonDatHangs" Relationship="CameraShopModel.FK_DonDatHang_NguoiDung" FromRole="NguoiDung" ToRole="DonDatHang" />
+    <NavigationProperty Name="HoaDons" Relationship="CameraShopModel.FK_HoaDon_NguoiDung" FromRole="NguoiDung" ToRole="HoaDon" />
+    <NavigationProperty Name="TaiKhoans" Relationship="CameraShopModel.FK_TaiKhoan_NguoiDung" FromRole="NguoiDung" ToRole="TaiKhoan" />
+  </EntityType>
+  <EntityType Name="NhaSanXuat">
+    <Key>
+      <PropertyRef Name="MaNhaSanXuat" />
+    </Key>
+    <Property Name="MaNhaSanXuat" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenNhaSanXuat" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="DongSanPhams" Relationship="CameraShopModel.FK_DongSanPham_NhaSanXuat" FromRole="NhaSanXuat" ToRole="DongSanPham" />
+  </EntityType>
+  <EntityType Name="NhomNguoiDung">
+    <Key>
+      <PropertyRef Name="MaNhomNguoiDung" />
+    </Key>
+    <Property Name="MaNhomNguoiDung" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenNhomNguoiDung" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="ChiTietNhomNguoiDungs" Relationship="CameraShopModel.FK_ChiTietNhomNguoiDung_NhomNguoiDung" FromRole="NhomNguoiDung" ToRole="ChiTietNhomNguoiDung" />
+  </EntityType>
+  <EntityType Name="SanPham">
+    <Key>
+      <PropertyRef Name="MaSanPham" />
+    </Key>
+    <Property Name="MaSanPham" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaDongSanPham" Type="Int32" Nullable="false" />
+    <Property Name="MaLoaiSanPham" Type="Int32" Nullable="false" />
+    <Property Name="MaKhuyenMai" Type="Int32" Nullable="false" />
+    <Property Name="TenSanPham" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="GiaBan" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="NgayDang" Type="DateTime" Nullable="false" />
+    <Property Name="SoLuong" Type="Int32" Nullable="false" />
+    <Property Name="TinhTrang" Type="Boolean" />
+    <NavigationProperty Name="AnhSanPhams" Relationship="CameraShopModel.FK_AnhSanPham_SanPham" FromRole="SanPham" ToRole="AnhSanPham" />
+    <NavigationProperty Name="ChiTietDonDatHangs" Relationship="CameraShopModel.FK_ChiTietDonDatHang_SanPham" FromRole="SanPham" ToRole="ChiTietDonDatHang" />
+    <NavigationProperty Name="ChiTietThongSoes" Relationship="CameraShopModel.FK_ChiTietThongSo_SanPham" FromRole="SanPham" ToRole="ChiTietThongSo" />
+    <NavigationProperty Name="DongSanPham" Relationship="CameraShopModel.FK_SanPham_DongSanPham" FromRole="SanPham" ToRole="DongSanPham" />
+    <NavigationProperty Name="KhuyenMai" Relationship="CameraShopModel.FK_SanPham_KhuyenMai" FromRole="SanPham" ToRole="KhuyenMai" />
+    <NavigationProperty Name="LoaiSanPham" Relationship="CameraShopModel.FK_SanPham_LoaiSanPham" FromRole="SanPham" ToRole="LoaiSanPham" />
+  </EntityType>
+  <EntityType Name="TaiKhoan">
+    <Key>
+      <PropertyRef Name="Username" />
+    </Key>
+    <Property Name="Username" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+    <Property Name="MaNguoiDung" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+    <Property Name="NgayTao" Type="DateTime" Nullable="false" />
+    <Property Name="ThoiGianDangNhap" Type="DateTime" Nullable="false" />
+    <Property Name="CauHoiBaoMat" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="TraLoiCauHoiBaoMat" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="NguoiDung" Relationship="CameraShopModel.FK_TaiKhoan_NguoiDung" FromRole="TaiKhoan" ToRole="NguoiDung" />
+    <NavigationProperty Name="TinTucs" Relationship="CameraShopModel.FK_TinTuc_TaiKhoan" FromRole="TaiKhoan" ToRole="TinTuc" />
+  </EntityType>
+  <EntityType Name="ThongSo">
+    <Key>
+      <PropertyRef Name="MaThongSo" />
+    </Key>
+    <Property Name="MaThongSo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenThongSo" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="TinhTrang" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="ChiTietThongSoes" Relationship="CameraShopModel.FK_ChiTietThongSo_ThongSo" FromRole="ThongSo" ToRole="ChiTietThongSo" />
+  </EntityType>
+  <EntityType Name="TinTuc">
+    <Key>
+      <PropertyRef Name="MaTinTuc" />
+    </Key>
+    <Property Name="MaTinTuc" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+    <Property Name="TieuDe" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="NoiDung" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="NgayDang" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="TaiKhoan" Relationship="CameraShopModel.FK_TinTuc_TaiKhoan" FromRole="TinTuc" ToRole="TaiKhoan" />
+  </EntityType>
+  <Association Name="FK_AnhSanPham_SanPham">
+    <End Role="SanPham" Type="CameraShopModel.SanPham" Multiplicity="1" />
+    <End Role="AnhSanPham" Type="CameraShopModel.AnhSanPham" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SanPham">
+        <PropertyRef Name="MaSanPham" />
+      </Principal>
+      <Dependent Role="AnhSanPham">
+        <PropertyRef Name="MaSanPham" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChiTietDonDatHang_DonDatHang">
+    <End Role="DonDatHang" Type="CameraShopModel.DonDatHang" Multiplicity="1" />
+    <End Role="ChiTietDonDatHang" Type="CameraShopModel.ChiTietDonDatHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DonDatHang">
+        <PropertyRef Name="MaDonDatHang" />
+      </Principal>
+      <Dependent Role="ChiTietDonDatHang">
+        <PropertyRef Name="MaDonDatHang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChiTietDonDatHang_SanPham">
+    <End Role="SanPham" Type="CameraShopModel.SanPham" Multiplicity="1" />
+    <End Role="ChiTietDonDatHang" Type="CameraShopModel.ChiTietDonDatHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SanPham">
+        <PropertyRef Name="MaSanPham" />
+      </Principal>
+      <Dependent Role="ChiTietDonDatHang">
+        <PropertyRef Name="MaSanPham" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChiTietNhomNguoiDung_NguoiDung">
+    <End Role="NguoiDung" Type="CameraShopModel.NguoiDung" Multiplicity="1" />
+    <End Role="ChiTietNhomNguoiDung" Type="CameraShopModel.ChiTietNhomNguoiDung" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NguoiDung">
+        <PropertyRef Name="MaNguoiDung" />
+      </Principal>
+      <Dependent Role="ChiTietNhomNguoiDung">
+        <PropertyRef Name="MaNguoiDung" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChiTietNhomNguoiDung_NhomNguoiDung">
+    <End Role="NhomNguoiDung" Type="CameraShopModel.NhomNguoiDung" Multiplicity="1" />
+    <End Role="ChiTietNhomNguoiDung" Type="CameraShopModel.ChiTietNhomNguoiDung" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhomNguoiDung">
+        <PropertyRef Name="MaNhomNguoiDung" />
+      </Principal>
+      <Dependent Role="ChiTietNhomNguoiDung">
+        <PropertyRef Name="MaNhomNguoiDung" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChiTietThongSo_SanPham">
+    <End Role="SanPham" Type="CameraShopModel.SanPham" Multiplicity="1" />
+    <End Role="ChiTietThongSo" Type="CameraShopModel.ChiTietThongSo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SanPham">
+        <PropertyRef Name="MaSanPham" />
+      </Principal>
+      <Dependent Role="ChiTietThongSo">
+        <PropertyRef Name="MaSanPham" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChiTietThongSo_ThongSo">
+    <End Role="ThongSo" Type="CameraShopModel.ThongSo" Multiplicity="1" />
+    <End Role="ChiTietThongSo" Type="CameraShopModel.ChiTietThongSo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ThongSo">
+        <PropertyRef Name="MaThongSo" />
+      </Principal>
+      <Dependent Role="ChiTietThongSo">
+        <PropertyRef Name="MaThongSo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DonDatHang_NguoiDung">
+    <End Role="NguoiDung" Type="CameraShopModel.NguoiDung" Multiplicity="1" />
+    <End Role="DonDatHang" Type="CameraShopModel.DonDatHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NguoiDung">
+        <PropertyRef Name="MaNguoiDung" />
+      </Principal>
+      <Dependent Role="DonDatHang">
+        <PropertyRef Name="MaNguoiDung" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HoaDon_DonDatHang">
+    <End Role="DonDatHang" Type="CameraShopModel.DonDatHang" Multiplicity="1" />
+    <End Role="HoaDon" Type="CameraShopModel.HoaDon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DonDatHang">
+        <PropertyRef Name="MaDonDatHang" />
+      </Principal>
+      <Dependent Role="HoaDon">
+        <PropertyRef Name="MaDonDatHang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DongSanPham_NhaSanXuat">
+    <End Role="NhaSanXuat" Type="CameraShopModel.NhaSanXuat" Multiplicity="0..1" />
+    <End Role="DongSanPham" Type="CameraShopModel.DongSanPham" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhaSanXuat">
+        <PropertyRef Name="MaNhaSanXuat" />
+      </Principal>
+      <Dependent Role="DongSanPham">
+        <PropertyRef Name="MaNhaSanXuat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SanPham_DongSanPham">
+    <End Role="DongSanPham" Type="CameraShopModel.DongSanPham" Multiplicity="1" />
+    <End Role="SanPham" Type="CameraShopModel.SanPham" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DongSanPham">
+        <PropertyRef Name="MaDongSanPham" />
+      </Principal>
+      <Dependent Role="SanPham">
+        <PropertyRef Name="MaDongSanPham" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HoaDon_NguoiDung">
+    <End Role="NguoiDung" Type="CameraShopModel.NguoiDung" Multiplicity="1" />
+    <End Role="HoaDon" Type="CameraShopModel.HoaDon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NguoiDung">
+        <PropertyRef Name="MaNguoiDung" />
+      </Principal>
+      <Dependent Role="HoaDon">
+        <PropertyRef Name="MaNhanVien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SanPham_KhuyenMai">
+    <End Role="KhuyenMai" Type="CameraShopModel.KhuyenMai" Multiplicity="1" />
+    <End Role="SanPham" Type="CameraShopModel.SanPham" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KhuyenMai">
+        <PropertyRef Name="MaKhuyenMai" />
+      </Principal>
+      <Dependent Role="SanPham">
+        <PropertyRef Name="MaKhuyenMai" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SanPham_LoaiSanPham">
+    <End Type="CameraShopModel.LoaiSanPham" Multiplicity="1" Role="LoaiSanPham" />
+    <End Type="CameraShopModel.SanPham" Multiplicity="*" Role="SanPham" />
+    <ReferentialConstraint>
+      <Principal Role="LoaiSanPham">
+        <PropertyRef Name="MaLoaiSanPham" />
+      </Principal>
+      <Dependent Role="SanPham">
+        <PropertyRef Name="MaLoaiSanPham" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TaiKhoan_NguoiDung">
+    <End Role="NguoiDung" Type="CameraShopModel.NguoiDung" Multiplicity="1" />
+    <End Role="TaiKhoan" Type="CameraShopModel.TaiKhoan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NguoiDung">
+        <PropertyRef Name="MaNguoiDung" />
+      </Principal>
+      <Dependent Role="TaiKhoan">
+        <PropertyRef Name="MaNguoiDung" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TinTuc_TaiKhoan">
+    <End Role="TaiKhoan" Type="CameraShopModel.TaiKhoan" Multiplicity="1" />
+    <End Role="TinTuc" Type="CameraShopModel.TinTuc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TaiKhoan">
+        <PropertyRef Name="Username" />
+      </Principal>
+      <Dependent Role="TinTuc">
+        <PropertyRef Name="Username" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

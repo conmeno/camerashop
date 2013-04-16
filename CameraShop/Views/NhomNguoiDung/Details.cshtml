@@ -1,0 +1,25 @@
+﻿@model CameraShop.Models.NhomNguoiDung
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+<h2>Details</h2>
+
+<fieldset>
+    <legend>NhomNguoiDung</legend>
+
+    <div class="display-label">MaNhomNguoiDung</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MaNhomNguoiDung)
+    </div>
+
+    <div class="display-label">TenNhomNguoiDung</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TenNhomNguoiDung)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

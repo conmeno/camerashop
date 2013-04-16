@@ -1,0 +1,74 @@
+﻿@model CameraShop.Models.TaiKhoan
+@{
+    ViewBag.Title = "NhonNguoiDung";
+}
+
+<h2>Quản lý nhóm người dùng cho user @Model.Username</h2>
+<table>
+    <tr>
+        <th>
+            MaNhomNguoiDung
+        </th>
+        <th>
+            TenNhomNguoiDung
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model.ChiTietNhomNguoiDungs)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaNhomNguoiDung)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NhomNguoiDung.TenNhomNguoiDung)
+        </td>
+        <td> 
+ 
+            @Html.ActionLink("Delete", "DeleteRole", new { id = item.MaNhomNguoiDung, username = item.TaiKhoan.Username }, new { onclick="return confirm('Are you sure :))')"})
+        </td>
+    </tr>
+}
+
+</table>
+ 
+@{
+    List<CameraShop.Models.NhomNguoiDung> nhomND = ViewBag.NhomNguoiDung;
+}
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Thêm nhóm người dùng cho user @Model.Username</legend>
+
+        <div class="editor-label">
+            @Html.Label("Chọn nhóm")
+        </div>
+        <div class="editor-field">
+         @{
+            List<SelectListItem> items = new List<SelectListItem>();
+            if(nhomND!=null)
+            {
+                foreach (var item in nhomND)
+	            {
+		                items.Add(new SelectListItem
+                        {
+                            Text = item.TenNhomNguoiDung,
+                            Value = item.MaNhomNguoiDung.ToString(), 
+                        });
+	            }
+            }
+          
+           
+        }
+            @Html.DropDownList("ListNhomNguoiDung",items);
+           
+        </div>
+
+       
+
+        <p>
+            <input type="submit" value="Thêm" />
+        </p>
+    </fieldset>
+}

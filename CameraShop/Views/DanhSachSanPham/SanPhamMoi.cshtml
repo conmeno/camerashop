@@ -1,0 +1,33 @@
+﻿@model IEnumerable<CameraShop.Models.SanPham>
+@{
+    ViewBag.Title = "SanPhamMoi";
+}
+
+@{
+    int numPro = Model.Count();
+    if (numPro > 5)
+    {
+        numPro = 5;
+    }
+    for (int i = 0; i < numPro; i++)
+    {
+        if (Model.ToList()[i].AnhSanPhams.ToList().Count > 0)
+        {
+            
+            <div class="sanphammoi_marquee" >
+            <a href="@Url.Content("~/DanhSachSanPham/Details/"+@Model.ToList()[i].MaSanPham)"><img src="@Model.ToList()[i].AnhSanPhams.ToList()[0].URL" /></a>
+            <p>@Model.ToList()[i].TenSanPham</p>
+           </div>
+        }
+        else
+        {
+            <div class="sanphammoi_marquee">
+            
+            <a href="@Url.Content("~/DanhSachSanPham/Details/" + @Model.ToList()[i].MaSanPham)"><img src="/Content/images/no-images.png" /></a>
+             <p>@Model.ToList()[i].TenSanPham</p>
+            </div>
+        }
+         
+                   
+    }
+}

@@ -1,0 +1,66 @@
+﻿@model CameraShop.Models.TaiKhoan
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<script type="text/javascript">
+    $(function () {
+        $('#baner').cycle();
+    });
+
+
+     
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $("#loginBox").colorbox({ height: 350, inline: true, href: "#login" });
+    });
+</script>
+@{
+    if (Session["UserName"] != null)
+    {        
+                         
+    <form action="@Url.Action("Logout", "TaiKhoan")" method="get">
+    <input type="submit" id="logoutButton" name="logout" value="Logout" />
+    </form>
+                
+    }
+    else
+    { 
+    <span id="loginBox" class="text-cart">Đăng nhập</span>
+    <div style="display: none; background-color: #F2F2F2; width: 420px;">
+        <div id="login" style="padding: 20px; background-color: #F2F2F2; width: 400px;">
+            <img style="float: right" alt="padlock" src="../../Content/images/padlock.png" />
+            <h2>
+                Đăng nhập vào CameraShop</h2>
+            @using (Html.BeginForm())
+            { 
+                <div id="loginerror">
+                </div>
+                <div>
+                    Tài khoản
+                    @Html.EditorFor(model => model.Username)
+                </div>
+                <div>
+                    Mật khẩu
+                    @Html.PasswordFor(Model => Model.Password)
+                </div>
+                <div>
+                    @Html.ValidationMessageFor(model => model.Username)
+                </div>
+                <div>
+                    @Html.ValidationMessageFor(model => model.Password)
+                </div>
+                <a href="#rememberpassword" class="inline" style="color: #333; text-decoration: none;">
+                    Forgot Password?</a>
+                <br />
+                <br />
+    
+                <input type="submit" value="Login" id="loginSM" class="large green awesome" />
+                         
+            }
+        </div>
+    </div>
+                  
+    }
+                
+}

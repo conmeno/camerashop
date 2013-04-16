@@ -1,0 +1,29 @@
+﻿@model CameraShop.Models.NhaSanXuat
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>NhaSanXuat</legend>
+
+    <div class="display-label">MaNhaSanXuat</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MaNhaSanXuat)
+    </div>
+
+    <div class="display-label">TenNhaSanXuat</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TenNhaSanXuat)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

@@ -1,0 +1,55 @@
+﻿@model IEnumerable<CameraShop.Models.SanPham>
+@{
+    ViewBag.Title = "Search";
+}
+<br />
+<div class="cnt-r-cnt">
+    <div class="cnt-r-cnt-l">
+        <div class="sanphammoi">
+            <div class="top-sp-moi">
+                Search Result</div>
+            <div class="bot-sp-moi"> 
+                    @{int count = 0;
+                        
+                    }  
+                          
+                    @if (Model != null)
+                    {
+                        foreach (CameraShop.Models.SanPham item in Model)
+                        {
+                            count++;
+                        <div class="border-sp">
+                            <div class="name">
+                              @Html.ActionLink(item.TenSanPham, "Details", new { id = item.MaSanPham })
+                            </div>
+                                @if (item.AnhSanPhams.Count > 0)
+                                {
+
+                                    string UrlImg = item.AnhSanPhams.ToList()[0].URL;
+                                     
+                                 
+                                   <a href="@Url.Content("~/DanhSachSanPham/Details/" + @item.MaSanPham)"><img class='border-img' src='@UrlImg' /></a> 
+                                }
+                                else
+                                {
+                                    <a href="@Url.Content("~/DanhSachSanPham/Details/" + @item.MaSanPham)"><img class='border-img' src='/Content/images/no-images.png' /></a> 
+                                }
+                             
+                            
+                            <div class="name">
+                                @item.GiaBan.ToString("##,#") VNĐ</div>
+                            <a href="">
+                                <img class="no-border" src="../../Content/images/btn_cart.png" /></a>
+                        </div>
+                                if (count % 4 == 0)
+                                {
+                            <div class="clear"></div>
+                                }
+
+                        }
+                    }
+               
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,56 @@
+﻿@model CameraShop.Models.NhaSanXuat
+@{
+    ViewBag.Title = "NhaSanXuat";
+}
+
+<br />
+<div class="cnt-r-cnt">
+    <div class="cnt-r-cnt-l">
+        <div class="sanphammoi">
+            <div class="top-sp-moi">
+                @Model.TenNhaSanXuat</div>
+            <div class="bot-sp-moi"> 
+                    @{int count = 0;
+                        
+                    }  
+                     
+                    @for(int i=0;i<Model.DongSanPhams.ToList().Count;i++)
+                    {     
+                        foreach (CameraShop.Models.SanPham item in Model.DongSanPhams.ToList()[i].SanPhams.ToList())
+                        {
+                            count++;
+                                                                                                                    <div class="border-sp">
+                            <div class="name">
+                              @Html.ActionLink(item.TenSanPham, "Details",new { id=item.MaSanPham })
+                            </div>
+                                @if (item.AnhSanPhams.Count > 0)
+                                { 
+                                   
+                                     string UrlImg=item.AnhSanPhams.ToList()[0].URL;
+                                     
+                                 
+                                   <a href="@Url.Content("~/DanhSachSanPham/Details/" + @item.MaSanPham)"><img class='border-img' src='@UrlImg' /></a> 
+                                }
+                                else
+                                {
+                                    <a href="@Url.Content("~/DanhSachSanPham/Details/" + @item.MaSanPham)"><img class='border-img' src='/Content/images/no-images.png' /></a> 
+                                }
+                             
+                            
+                            <div class="name">
+                                @item.GiaBan.ToString("##,#") VNĐ</div>
+                            <a href="">
+                                <img class="no-border" src="../../Content/images/btn_cart.png" /></a>
+                        </div>
+                                    if (count % 4 == 0)
+                                    {
+                                <div class="clear"></div>
+                            }
+                        
+                        }
+                    }
+               
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+﻿@model IEnumerable<CameraShop.Models.NhomNguoiDung>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            MaNhomNguoiDung
+        </th>
+        <th>
+            TenNhomNguoiDung
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaNhomNguoiDung)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenNhomNguoiDung)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit",       new {id=item.MaNhomNguoiDung }) |
+            @Html.ActionLink("Details", "Details", new {id=item.MaNhomNguoiDung }) |
+            @Html.ActionLink("Delete", "Delete",   new {id=item.MaNhomNguoiDung })
+        </td>
+    </tr>
+}
+
+</table>

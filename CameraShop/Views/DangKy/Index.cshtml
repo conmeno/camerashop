@@ -1,0 +1,101 @@
+﻿@model CameraShop.Models.TaiKhoan
+
+@{
+    ViewBag.Title = "Index";
+}
+ 
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Tạo tài khoản</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Username)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Username)
+            @Html.ValidationMessageFor(model => model.Username)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Password)
+        </div>
+        <div class="editor-field">
+            @Html.PasswordFor(model => model.Password)
+            @Html.ValidationMessageFor(model => model.Password)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NguoiDung.TenNguoiDung)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NguoiDung.TenNguoiDung)
+            @Html.ValidationMessageFor(model => model.NguoiDung.TenNguoiDung)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NguoiDung.GioiTinh) @Html.EditorFor(model => model.NguoiDung.GioiTinh)Nam
+        </div>
+        <div class="editor-field">
+            
+            @Html.ValidationMessageFor(model => model.NguoiDung.GioiTinh)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NguoiDung.DiaChi)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NguoiDung.DiaChi)
+            @Html.ValidationMessageFor(model => model.NguoiDung.DiaChi)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NguoiDung.DienThoai)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NguoiDung.DienThoai)
+            @Html.ValidationMessageFor(model => model.NguoiDung.DienThoai)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NguoiDung.Email)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NguoiDung.Email)
+            @Html.ValidationMessageFor(model => model.NguoiDung.Email)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NguoiDung.NamSinh)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NguoiDung.NamSinh)
+            @Html.ValidationMessageFor(model => model.NguoiDung.NamSinh)
+        </div>  
+         @*end nguoi dung*@
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CauHoiBaoMat)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CauHoiBaoMat)
+            @Html.ValidationMessageFor(model => model.CauHoiBaoMat)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TraLoiCauHoiBaoMat)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TraLoiCauHoiBaoMat)
+            @Html.ValidationMessageFor(model => model.TraLoiCauHoiBaoMat)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+

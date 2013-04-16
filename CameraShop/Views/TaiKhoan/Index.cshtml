@@ -1,0 +1,75 @@
+﻿@model IEnumerable<CameraShop.Models.TaiKhoan>
+
+@{
+    ViewBag.Title = "Quản lý tài khoản";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+<h2>Quản lý tài khoản</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            Username
+        </th>
+        <th>
+            Password
+        </th>
+        <th>
+            NguoiDung
+        </th>
+        <th>
+            NgayTao
+        </th>
+        <th>
+            Quản lý quyền
+        </th>
+        <th>
+            ThoiGianDangNhap
+        </th>
+        <th>
+            CauHoiBaoMat
+        </th>
+        <th>
+            TraLoiCauHoiBaoMat
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Username)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Password)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NguoiDung.TenNguoiDung)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NgayTao)
+        </td>
+         <td>
+            @Html.ActionLink("Phân quyền", "NhomNguoiDung", new { id = item.Username.Trim() })
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ThoiGianDangNhap)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CauHoiBaoMat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TraLoiCauHoiBaoMat)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.Username.Trim() }) |
+            @Html.ActionLink("Details", "Details", new { id = item.Username.Trim() }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Username.Trim() })
+        </td>
+    </tr>
+}
+
+</table>

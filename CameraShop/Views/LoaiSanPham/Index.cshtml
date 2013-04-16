@@ -1,0 +1,52 @@
+﻿@model IEnumerable<CameraShop.Models.LoaiSanPham>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+  @{
+      if (Session["isAdmin"] != null && Session["isAdmin"].ToString() == "1")
+      {
+         
+                 <h2>Index</h2>
+
+                <p>
+                    @Html.ActionLink("Create New", "Create")
+                </p>
+                <table>
+                    <tr>
+                        <th>
+                            MaLoaiSanPham
+                        </th>
+                        <th>
+                            TenLoaiSanPham
+                        </th>
+                        <th></th>
+                    </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MaLoaiSanPham)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TenLoaiSanPham)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.MaLoaiSanPham }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.MaLoaiSanPham }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.MaLoaiSanPham })
+                        </td>
+                    </tr>
+                }
+
+                </table>
+         
+      }
+      else
+      { 
+                 <span>Bạn cần đăng nhập bằng tài khoản Admin để xem được trang này</span> 
+      }
+    }
+

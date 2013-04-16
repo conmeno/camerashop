@@ -1,0 +1,51 @@
+﻿@model CameraShop.Models.TaiKhoan
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>TaiKhoan</legend>
+
+    <div class="display-label">Username</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Username)
+    </div>
+
+    <div class="display-label">Password</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Password)
+    </div>
+
+    <div class="display-label">NguoiDung</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NguoiDung.TenNguoiDung)
+    </div>
+
+    <div class="display-label">NgayTao</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NgayTao)
+    </div>
+
+    <div class="display-label">ThoiGianDangNhap</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ThoiGianDangNhap)
+    </div>
+
+    <div class="display-label">CauHoiBaoMat</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CauHoiBaoMat)
+    </div>
+
+    <div class="display-label">TraLoiCauHoiBaoMat</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TraLoiCauHoiBaoMat)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

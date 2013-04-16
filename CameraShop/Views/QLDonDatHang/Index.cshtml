@@ -1,0 +1,104 @@
+﻿@model IEnumerable<CameraShop.Models.DonDatHang>
+
+@{
+    ViewBag.Title = "Quản lý đơn đặt hàng";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h3><em>Danh Sách Đơn Đặt Hàng:</em></h3>
+ 
+<table>
+    <tr>
+        <th>
+            Mả đơn ĐH
+        </th>
+        <th>
+            Người mua
+        </th>
+        <th>
+            Ngày mua
+        </th>
+        <th>
+            thuế
+        </th>
+        <th>
+            Tổng tiền
+        </th>
+        <th>
+            Trình trạng
+        </th>
+        <th>
+            Duyệt
+        </th>
+              <th>
+          Hóa đơn
+        </th>
+        <th></th>
+        
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaDonDatHang)
+        </td>
+        <td>
+           
+           @Html.ActionLink(item.NguoiDung.TenNguoiDung, "ThongTinNguoiDung", "NguoiDung", new { id = item.NguoiDung.MaNguoiDung }, "")
+        </td>
+        <td>
+          
+             @item.NgayLap.ToString("dd-MM-yyyy")
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ThueSuat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TongTien)
+        </td>
+        <td>
+            @{if (item.TinhTrang == true)
+              {
+                  <span>Duyệt</span>
+              }
+              else
+              {
+                   <span>Chưa duyệt</span>
+              }
+              }
+           
+           
+        </td>
+         <td>
+            @{if (item.TinhTrang == true)
+              {
+                  @Html.ActionLink("Không duyệt", "Duyet", new { id = item.MaDonDatHang, Duyet=false })
+              }
+              else
+              {
+                   @Html.ActionLink("Duyệt", "Duyet", new { id = item.MaDonDatHang,Duyet=true })
+              }
+              }
+           
+        </td>
+        <td>
+        @Html.ActionLink("Lập hóa đơn", "TaoHoaDon","HoaDon", new { MaDonDatHang= item.MaDonDatHang},"")
+        </td>
+        <td> 
+            @Html.ActionLink("Chi tiết", "","ChiTietDonDatHang", new { id = item.MaDonDatHang },"") |
+            @Html.ActionLink("Delete", "DeleteOrder", new { id = item.MaDonDatHang }, new { onclick = "return confirm('Are you sure :))')" })
+        </td>
+    </tr>
+}
+
+</table>
+
+<div>
+<h3>Lưu ý</h3>
+<em>
+Khi duyệt thì số lượng sản phẩm trong kho sẽ được trừ đi với số lượng hàng hóa đã mua, khi bấm vô "Không duyệt" sẽ trả lại hàng
+<div>
+
+</div>
+</em>
+</div>

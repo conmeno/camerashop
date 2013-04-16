@@ -1,0 +1,42 @@
+﻿@model CameraShop.Models.NhomNguoiDung
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>Create</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>NhomNguoiDung</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MaNhomNguoiDung)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MaNhomNguoiDung)
+            @Html.ValidationMessageFor(model => model.MaNhomNguoiDung)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TenNhomNguoiDung)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TenNhomNguoiDung)
+            @Html.ValidationMessageFor(model => model.TenNhomNguoiDung)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

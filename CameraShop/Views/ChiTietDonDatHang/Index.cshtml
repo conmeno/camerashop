@@ -1,0 +1,52 @@
+﻿@model IEnumerable<CameraShop.Models.ChiTietDonDatHang>
+
+@{
+    ViewBag.Title = "Chi tiết đơn đặt hàng ";
+}
+<h3><em>Chi tiết đơn đặt hàng</em></h3>
+<table>
+    <tr>
+        <th>
+            DonDatHang
+        </th>
+        <th>
+            SanPham
+        </th>
+        <th>
+            SoLuong
+        </th>
+        <th>
+            DonGia
+        </th>
+        <th>
+            ThanhTien
+        </th>
+        
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DonDatHang.MaDonDatHang)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SanPham.TenSanPham)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SoLuong)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DonGia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ThanhTien)
+        </td>
+        
+    </tr>
+}
+
+</table>
+<br />
+<div>
+    @Html.ActionLink("Quay lại", "Index","QLDonDatHang")
+</div>

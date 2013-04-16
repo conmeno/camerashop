@@ -1,0 +1,51 @@
+﻿@model CameraShop.Models.NguoiDung
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>NguoiDung</legend>
+
+    <div class="display-label">MaNguoiDung</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MaNguoiDung)
+    </div>
+
+    <div class="display-label">TenNguoiDung</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TenNguoiDung)
+    </div>
+
+    <div class="display-label">GioiTinh</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.GioiTinh)
+    </div>
+
+    <div class="display-label">DiaChi</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DiaChi)
+    </div>
+
+    <div class="display-label">DienThoai</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DienThoai)
+    </div>
+
+    <div class="display-label">Email</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Email)
+    </div>
+
+    <div class="display-label">NamSinh</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NamSinh)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

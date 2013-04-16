@@ -1,0 +1,59 @@
+﻿@model IEnumerable<CameraShop.Models.TinTuc>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            MaTinTuc
+        </th> 
+        <th>
+            TaiKhoan
+        </th>
+        <th>
+            TieuDe
+        </th>
+        <th>
+            NoiDung
+        </th>
+        <th>
+            NgayDang
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaTinTuc)
+        </td>
+ 
+        <td>
+            @Html.DisplayFor(modelItem => item.TaiKhoan.Password)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TieuDe)
+        </td>
+        <td>
+            @Html.DisplayTextFor(modelItem => item.NoiDung)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NgayDang)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit",       new { id=item.MaTinTuc }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MaTinTuc }) |
+            @Html.ActionLink("Delete", "Delete",   new { id=item.MaTinTuc })
+        </td>
+    </tr>
+}
+
+</table>

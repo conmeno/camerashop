@@ -1,0 +1,70 @@
+﻿@model IEnumerable<CameraShop.Models.NguoiDung>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            MaNguoiDung
+        </th>
+        <th>
+            TenNguoiDung
+        </th>
+        <th>
+            GioiTinh
+        </th>
+        <th>
+            DiaChi
+        </th>
+        <th>
+            DienThoai
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            NamSinh
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaNguoiDung)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenNguoiDung)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GioiTinh)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DiaChi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DienThoai)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NamSinh)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit",       new {id=item.MaNguoiDung }) |
+            @Html.ActionLink("Details", "Details", new {id=item.MaNguoiDung }) |
+            @Html.ActionLink("Delete", "Delete",   new {id=item.MaNguoiDung })
+        </td>
+    </tr>
+}
+
+</table>

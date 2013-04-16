@@ -1,0 +1,450 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CameraShopModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="CameraShopModelStoreContainer">
+    <EntitySet Name="AnhSanPham" EntityType="CameraShopModel.Store.AnhSanPham" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ChiTietDonDatHang" EntityType="CameraShopModel.Store.ChiTietDonDatHang" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ChiTietNhomNguoiDung" EntityType="CameraShopModel.Store.ChiTietNhomNguoiDung" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ChiTietThongSo" EntityType="CameraShopModel.Store.ChiTietThongSo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DonDatHang" EntityType="CameraShopModel.Store.DonDatHang" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DongSanPham" EntityType="CameraShopModel.Store.DongSanPham" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="HoaDon" EntityType="CameraShopModel.Store.HoaDon" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="KhuyenMai" EntityType="CameraShopModel.Store.KhuyenMai" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="LoaiSanPham" EntityType="CameraShopModel.Store.LoaiSanPham" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="NguoiDung" EntityType="CameraShopModel.Store.NguoiDung" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="NhaSanXuat" EntityType="CameraShopModel.Store.NhaSanXuat" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="NhomNguoiDung" EntityType="CameraShopModel.Store.NhomNguoiDung" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SanPham" EntityType="CameraShopModel.Store.SanPham" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TaiKhoan" EntityType="CameraShopModel.Store.TaiKhoan" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ThongSo" EntityType="CameraShopModel.Store.ThongSo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TinTuc" EntityType="CameraShopModel.Store.TinTuc" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_AnhSanPham_SanPham" Association="CameraShopModel.Store.FK_AnhSanPham_SanPham">
+      <End Role="SanPham" EntitySet="SanPham" />
+      <End Role="AnhSanPham" EntitySet="AnhSanPham" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChiTietDonDatHang_DonDatHang" Association="CameraShopModel.Store.FK_ChiTietDonDatHang_DonDatHang">
+      <End Role="DonDatHang" EntitySet="DonDatHang" />
+      <End Role="ChiTietDonDatHang" EntitySet="ChiTietDonDatHang" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChiTietDonDatHang_SanPham" Association="CameraShopModel.Store.FK_ChiTietDonDatHang_SanPham">
+      <End Role="SanPham" EntitySet="SanPham" />
+      <End Role="ChiTietDonDatHang" EntitySet="ChiTietDonDatHang" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChiTietNhomNguoiDung_NguoiDung" Association="CameraShopModel.Store.FK_ChiTietNhomNguoiDung_NguoiDung">
+      <End Role="NguoiDung" EntitySet="NguoiDung" />
+      <End Role="ChiTietNhomNguoiDung" EntitySet="ChiTietNhomNguoiDung" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChiTietNhomNguoiDung_NhomNguoiDung" Association="CameraShopModel.Store.FK_ChiTietNhomNguoiDung_NhomNguoiDung">
+      <End Role="NhomNguoiDung" EntitySet="NhomNguoiDung" />
+      <End Role="ChiTietNhomNguoiDung" EntitySet="ChiTietNhomNguoiDung" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChiTietThongSo_SanPham" Association="CameraShopModel.Store.FK_ChiTietThongSo_SanPham">
+      <End Role="SanPham" EntitySet="SanPham" />
+      <End Role="ChiTietThongSo" EntitySet="ChiTietThongSo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChiTietThongSo_ThongSo" Association="CameraShopModel.Store.FK_ChiTietThongSo_ThongSo">
+      <End Role="ThongSo" EntitySet="ThongSo" />
+      <End Role="ChiTietThongSo" EntitySet="ChiTietThongSo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DonDatHang_NguoiDung" Association="CameraShopModel.Store.FK_DonDatHang_NguoiDung">
+      <End Role="NguoiDung" EntitySet="NguoiDung" />
+      <End Role="DonDatHang" EntitySet="DonDatHang" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DongSanPham_NhaSanXuat" Association="CameraShopModel.Store.FK_DongSanPham_NhaSanXuat">
+      <End Role="NhaSanXuat" EntitySet="NhaSanXuat" />
+      <End Role="DongSanPham" EntitySet="DongSanPham" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HoaDon_DonDatHang" Association="CameraShopModel.Store.FK_HoaDon_DonDatHang">
+      <End Role="DonDatHang" EntitySet="DonDatHang" />
+      <End Role="HoaDon" EntitySet="HoaDon" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HoaDon_NguoiDung" Association="CameraShopModel.Store.FK_HoaDon_NguoiDung">
+      <End Role="NguoiDung" EntitySet="NguoiDung" />
+      <End Role="HoaDon" EntitySet="HoaDon" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SanPham_DongSanPham" Association="CameraShopModel.Store.FK_SanPham_DongSanPham">
+      <End Role="DongSanPham" EntitySet="DongSanPham" />
+      <End Role="SanPham" EntitySet="SanPham" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SanPham_KhuyenMai" Association="CameraShopModel.Store.FK_SanPham_KhuyenMai">
+      <End Role="KhuyenMai" EntitySet="KhuyenMai" />
+      <End Role="SanPham" EntitySet="SanPham" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SanPham_LoaiSanPham" Association="CameraShopModel.Store.FK_SanPham_LoaiSanPham">
+      <End Role="LoaiSanPham" EntitySet="LoaiSanPham" />
+      <End Role="SanPham" EntitySet="SanPham" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TaiKhoan_NguoiDung" Association="CameraShopModel.Store.FK_TaiKhoan_NguoiDung">
+      <End Role="NguoiDung" EntitySet="NguoiDung" />
+      <End Role="TaiKhoan" EntitySet="TaiKhoan" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TinTuc_TaiKhoan" Association="CameraShopModel.Store.FK_TinTuc_TaiKhoan">
+      <End Role="TaiKhoan" EntitySet="TaiKhoan" />
+      <End Role="TinTuc" EntitySet="TinTuc" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="AnhSanPham">
+    <Key>
+      <PropertyRef Name="MaHinhAnh" />
+    </Key>
+    <Property Name="MaHinhAnh" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="URL" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="MaSanPham" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ChiTietDonDatHang">
+    <Key>
+      <PropertyRef Name="MaDonDatHang" />
+      <PropertyRef Name="MaSanPham" />
+    </Key>
+    <Property Name="MaDonDatHang" Type="int" Nullable="false" />
+    <Property Name="MaSanPham" Type="int" Nullable="false" />
+    <Property Name="SoLuong" Type="int" Nullable="false" />
+    <Property Name="DonGia" Type="money" Nullable="false" />
+    <Property Name="ThanhTien" Type="money" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ChiTietNhomNguoiDung">
+    <Key>
+      <PropertyRef Name="MaNguoiDung" />
+      <PropertyRef Name="MaNhomNguoiDung" />
+    </Key>
+    <Property Name="MaNguoiDung" Type="nchar" Nullable="false" MaxLength="10" />
+    <Property Name="MaNhomNguoiDung" Type="int" Nullable="false" />
+    <Property Name="MoTa" Type="nvarchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="ChiTietThongSo">
+    <Key>
+      <PropertyRef Name="MaThongSo" />
+      <PropertyRef Name="MaSanPham" />
+    </Key>
+    <Property Name="MaThongSo" Type="int" Nullable="false" />
+    <Property Name="MaSanPham" Type="int" Nullable="false" />
+    <Property Name="GiaTri" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DonDatHang">
+    <Key>
+      <PropertyRef Name="MaDonDatHang" />
+    </Key>
+    <Property Name="MaDonDatHang" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="MaNguoiDung" Type="nchar" Nullable="false" MaxLength="10" />
+    <Property Name="NgayLap" Type="datetime" Nullable="false" />
+    <Property Name="ThueSuat" Type="int" Nullable="false" />
+    <Property Name="TongTien" Type="money" Nullable="false" />
+    <Property Name="TinhTrang" Type="bit" />
+  </EntityType>
+  <EntityType Name="DongSanPham">
+    <Key>
+      <PropertyRef Name="MaDongSanPham" />
+    </Key>
+    <Property Name="MaDongSanPham" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="MaNhaSanXuat" Type="int" />
+    <Property Name="TenDongSanPham" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="HoaDon">
+    <Key>
+      <PropertyRef Name="MaHoaDon" />
+    </Key>
+    <Property Name="MaHoaDon" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="MaDonDatHang" Type="int" Nullable="false" />
+    <Property Name="MaNhanVien" Type="nchar" Nullable="false" MaxLength="10" />
+    <Property Name="NgayLap" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="KhuyenMai">
+    <Key>
+      <PropertyRef Name="MaKhuyenMai" />
+    </Key>
+    <Property Name="MaKhuyenMai" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="TenKhuyenMai" Type="nchar" Nullable="false" MaxLength="100" />
+    <Property Name="MoTa" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="NgayBatDau" Type="datetime" Nullable="false" />
+    <Property Name="NgayKetThuc" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LoaiSanPham">
+    <Key>
+      <PropertyRef Name="MaLoaiSanPham" />
+    </Key>
+    <Property Name="MaLoaiSanPham" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="TenLoaiSanPham" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="NguoiDung">
+    <Key>
+      <PropertyRef Name="MaNguoiDung" />
+    </Key>
+    <Property Name="MaNguoiDung" Type="nchar" Nullable="false" MaxLength="10" />
+    <Property Name="TenNguoiDung" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="GioiTinh" Type="bit" Nullable="false" />
+    <Property Name="DiaChi" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="DienThoai" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="NamSinh" Type="nchar" Nullable="false" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="NhaSanXuat">
+    <Key>
+      <PropertyRef Name="MaNhaSanXuat" />
+    </Key>
+    <Property Name="MaNhaSanXuat" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="TenNhaSanXuat" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="NhomNguoiDung">
+    <Key>
+      <PropertyRef Name="MaNhomNguoiDung" />
+    </Key>
+    <Property Name="MaNhomNguoiDung" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="TenNhomNguoiDung" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SanPham">
+    <Key>
+      <PropertyRef Name="MaSanPham" />
+    </Key>
+    <Property Name="MaSanPham" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="MaDongSanPham" Type="int" Nullable="false" />
+    <Property Name="MaLoaiSanPham" Type="int" Nullable="false" />
+    <Property Name="MaKhuyenMai" Type="int" Nullable="false" />
+    <Property Name="TenSanPham" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="GiaBan" Type="money" Nullable="false" />
+    <Property Name="NgayDang" Type="datetime" Nullable="false" />
+    <Property Name="SoLuong" Type="int" Nullable="false" />
+    <Property Name="TinhTrang" Type="bit" />
+  </EntityType>
+  <EntityType Name="TaiKhoan">
+    <Key>
+      <PropertyRef Name="Username" />
+    </Key>
+    <Property Name="Username" Type="nchar" Nullable="false" MaxLength="10" />
+    <Property Name="Password" Type="nchar" Nullable="false" MaxLength="10" />
+    <Property Name="MaNguoiDung" Type="nchar" Nullable="false" MaxLength="10" />
+    <Property Name="NgayTao" Type="datetime" Nullable="false" />
+    <Property Name="ThoiGianDangNhap" Type="datetime" Nullable="false" />
+    <Property Name="CauHoiBaoMat" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="TraLoiCauHoiBaoMat" Type="nvarchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="ThongSo">
+    <Key>
+      <PropertyRef Name="MaThongSo" />
+    </Key>
+    <Property Name="MaThongSo" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="TenThongSo" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="TinhTrang" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TinTuc">
+    <Key>
+      <PropertyRef Name="MaTinTuc" />
+    </Key>
+    <Property Name="MaTinTuc" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="nchar" Nullable="false" MaxLength="10" />
+    <Property Name="TieuDe" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="NoiDung" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="NgayDang" Type="datetime" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_AnhSanPham_SanPham">
+    <End Role="SanPham" Type="CameraShopModel.Store.SanPham" Multiplicity="1" />
+    <End Role="AnhSanPham" Type="CameraShopModel.Store.AnhSanPham" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SanPham">
+        <PropertyRef Name="MaSanPham" />
+      </Principal>
+      <Dependent Role="AnhSanPham">
+        <PropertyRef Name="MaSanPham" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChiTietDonDatHang_DonDatHang">
+    <End Role="DonDatHang" Type="CameraShopModel.Store.DonDatHang" Multiplicity="1" />
+    <End Role="ChiTietDonDatHang" Type="CameraShopModel.Store.ChiTietDonDatHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DonDatHang">
+        <PropertyRef Name="MaDonDatHang" />
+      </Principal>
+      <Dependent Role="ChiTietDonDatHang">
+        <PropertyRef Name="MaDonDatHang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChiTietDonDatHang_SanPham">
+    <End Role="SanPham" Type="CameraShopModel.Store.SanPham" Multiplicity="1" />
+    <End Role="ChiTietDonDatHang" Type="CameraShopModel.Store.ChiTietDonDatHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SanPham">
+        <PropertyRef Name="MaSanPham" />
+      </Principal>
+      <Dependent Role="ChiTietDonDatHang">
+        <PropertyRef Name="MaSanPham" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChiTietNhomNguoiDung_NguoiDung">
+    <End Role="NguoiDung" Type="CameraShopModel.Store.NguoiDung" Multiplicity="1" />
+    <End Role="ChiTietNhomNguoiDung" Type="CameraShopModel.Store.ChiTietNhomNguoiDung" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NguoiDung">
+        <PropertyRef Name="MaNguoiDung" />
+      </Principal>
+      <Dependent Role="ChiTietNhomNguoiDung">
+        <PropertyRef Name="MaNguoiDung" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChiTietNhomNguoiDung_NhomNguoiDung">
+    <End Role="NhomNguoiDung" Type="CameraShopModel.Store.NhomNguoiDung" Multiplicity="1" />
+    <End Role="ChiTietNhomNguoiDung" Type="CameraShopModel.Store.ChiTietNhomNguoiDung" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhomNguoiDung">
+        <PropertyRef Name="MaNhomNguoiDung" />
+      </Principal>
+      <Dependent Role="ChiTietNhomNguoiDung">
+        <PropertyRef Name="MaNhomNguoiDung" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChiTietThongSo_SanPham">
+    <End Role="SanPham" Type="CameraShopModel.Store.SanPham" Multiplicity="1" />
+    <End Role="ChiTietThongSo" Type="CameraShopModel.Store.ChiTietThongSo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SanPham">
+        <PropertyRef Name="MaSanPham" />
+      </Principal>
+      <Dependent Role="ChiTietThongSo">
+        <PropertyRef Name="MaSanPham" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChiTietThongSo_ThongSo">
+    <End Role="ThongSo" Type="CameraShopModel.Store.ThongSo" Multiplicity="1" />
+    <End Role="ChiTietThongSo" Type="CameraShopModel.Store.ChiTietThongSo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ThongSo">
+        <PropertyRef Name="MaThongSo" />
+      </Principal>
+      <Dependent Role="ChiTietThongSo">
+        <PropertyRef Name="MaThongSo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DonDatHang_NguoiDung">
+    <End Role="NguoiDung" Type="CameraShopModel.Store.NguoiDung" Multiplicity="1" />
+    <End Role="DonDatHang" Type="CameraShopModel.Store.DonDatHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NguoiDung">
+        <PropertyRef Name="MaNguoiDung" />
+      </Principal>
+      <Dependent Role="DonDatHang">
+        <PropertyRef Name="MaNguoiDung" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DongSanPham_NhaSanXuat">
+    <End Role="NhaSanXuat" Type="CameraShopModel.Store.NhaSanXuat" Multiplicity="0..1" />
+    <End Role="DongSanPham" Type="CameraShopModel.Store.DongSanPham" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhaSanXuat">
+        <PropertyRef Name="MaNhaSanXuat" />
+      </Principal>
+      <Dependent Role="DongSanPham">
+        <PropertyRef Name="MaNhaSanXuat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HoaDon_DonDatHang">
+    <End Role="DonDatHang" Type="CameraShopModel.Store.DonDatHang" Multiplicity="1" />
+    <End Role="HoaDon" Type="CameraShopModel.Store.HoaDon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DonDatHang">
+        <PropertyRef Name="MaDonDatHang" />
+      </Principal>
+      <Dependent Role="HoaDon">
+        <PropertyRef Name="MaDonDatHang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HoaDon_NguoiDung">
+    <End Role="NguoiDung" Type="CameraShopModel.Store.NguoiDung" Multiplicity="1" />
+    <End Role="HoaDon" Type="CameraShopModel.Store.HoaDon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NguoiDung">
+        <PropertyRef Name="MaNguoiDung" />
+      </Principal>
+      <Dependent Role="HoaDon">
+        <PropertyRef Name="MaNhanVien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SanPham_DongSanPham">
+    <End Role="DongSanPham" Type="CameraShopModel.Store.DongSanPham" Multiplicity="1" />
+    <End Role="SanPham" Type="CameraShopModel.Store.SanPham" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DongSanPham">
+        <PropertyRef Name="MaDongSanPham" />
+      </Principal>
+      <Dependent Role="SanPham">
+        <PropertyRef Name="MaDongSanPham" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SanPham_KhuyenMai">
+    <End Role="KhuyenMai" Type="CameraShopModel.Store.KhuyenMai" Multiplicity="1" />
+    <End Role="SanPham" Type="CameraShopModel.Store.SanPham" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KhuyenMai">
+        <PropertyRef Name="MaKhuyenMai" />
+      </Principal>
+      <Dependent Role="SanPham">
+        <PropertyRef Name="MaKhuyenMai" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SanPham_LoaiSanPham">
+    <End Role="LoaiSanPham" Type="CameraShopModel.Store.LoaiSanPham" Multiplicity="1" />
+    <End Role="SanPham" Type="CameraShopModel.Store.SanPham" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LoaiSanPham">
+        <PropertyRef Name="MaLoaiSanPham" />
+      </Principal>
+      <Dependent Role="SanPham">
+        <PropertyRef Name="MaLoaiSanPham" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TaiKhoan_NguoiDung">
+    <End Role="NguoiDung" Type="CameraShopModel.Store.NguoiDung" Multiplicity="1" />
+    <End Role="TaiKhoan" Type="CameraShopModel.Store.TaiKhoan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NguoiDung">
+        <PropertyRef Name="MaNguoiDung" />
+      </Principal>
+      <Dependent Role="TaiKhoan">
+        <PropertyRef Name="MaNguoiDung" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TinTuc_TaiKhoan">
+    <End Role="TaiKhoan" Type="CameraShopModel.Store.TaiKhoan" Multiplicity="1" />
+    <End Role="TinTuc" Type="CameraShopModel.Store.TinTuc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TaiKhoan">
+        <PropertyRef Name="Username" />
+      </Principal>
+      <Dependent Role="TinTuc">
+        <PropertyRef Name="Username" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="get_cat_name_by_id" ReturnType="nvarchar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="get_cat_name_Eng_by_id" ReturnType="nvarchar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="get_manufacturer_name_by_id" ReturnType="nvarchar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="get_origin_name_by_id" ReturnType="nvarchar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="get_origin_name_Eng_by_id" ReturnType="nvarchar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="get_subcat_name_by_id" ReturnType="nvarchar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="get_subcat_name_Eng_by_id" ReturnType="nvarchar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+</Schema>

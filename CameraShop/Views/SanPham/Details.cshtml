@@ -1,0 +1,61 @@
+﻿@model CameraShop.Models.SanPham
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>SanPham</legend>
+
+    <div class="display-label">MaSanPham</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MaSanPham)
+    </div>
+
+    <div class="display-label">DongSanPham</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DongSanPham.TenDongSanPham)
+    </div>
+
+    <div class="display-label">LoaiSanPham</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LoaiSanPham.TenLoaiSanPham)
+    </div>
+
+    <div class="display-label">KhuyenMai</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.KhuyenMai.TenKhuyenMai)
+    </div>
+
+    <div class="display-label">TenSanPham</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TenSanPham)
+    </div>
+
+    <div class="display-label">GiaBan</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.GiaBan)
+    </div>
+
+    <div class="display-label">NgayDang</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NgayDang)
+    </div>
+
+    <div class="display-label">SoLuong</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SoLuong)
+    </div>
+
+    <div class="display-label">TinhTrang</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TinhTrang)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.MaSanPham }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

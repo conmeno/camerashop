@@ -1,0 +1,7 @@
+H:\tram\CameraShop\CameraShop\bin\CameraShop.dll
+H:\tram\CameraShop\CameraShop\bin\CameraShop.pdb
+H:\tram\CameraShop\CameraShop\bin\EntityFramework.dll
+H:\tram\CameraShop\CameraShop\bin\EntityFramework.xml
+H:\tram\CameraShop\CameraShop\obj\Release\ResolveAssemblyReference.cache
+H:\tram\CameraShop\CameraShop\obj\Release\CameraShop.dll
+H:\tram\CameraShop\CameraShop\obj\Release\CameraShop.pdb

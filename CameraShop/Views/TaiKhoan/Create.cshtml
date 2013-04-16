@@ -1,0 +1,82 @@
+﻿@model CameraShop.Models.TaiKhoan
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>Create</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>TaiKhoan</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Username)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Username)
+            @Html.ValidationMessageFor(model => model.Username)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Password)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Password)
+            @Html.ValidationMessageFor(model => model.Password)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MaNguoiDung, "NguoiDung")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("MaNguoiDung", String.Empty)
+            @Html.ValidationMessageFor(model => model.MaNguoiDung)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NgayTao)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NgayTao)
+            @Html.ValidationMessageFor(model => model.NgayTao)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ThoiGianDangNhap)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ThoiGianDangNhap)
+            @Html.ValidationMessageFor(model => model.ThoiGianDangNhap)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CauHoiBaoMat)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CauHoiBaoMat)
+            @Html.ValidationMessageFor(model => model.CauHoiBaoMat)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TraLoiCauHoiBaoMat)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TraLoiCauHoiBaoMat)
+            @Html.ValidationMessageFor(model => model.TraLoiCauHoiBaoMat)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

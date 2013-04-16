@@ -1,0 +1,50 @@
+﻿@model IEnumerable<CameraShop.Models.HoaDon>
+
+@{
+    ViewBag.Title = "Danh sách hóa đơn";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+<em>Để tạo mới hóa đơn, bạn vào phần quản lý đơn đặt hàng</em>
+
+<h2>Danh sách hóa đơn hiện có</h2>
+
+ 
+<table>
+    <tr>
+        <th>
+            MaHoaDon
+        </th>
+        <th>
+            DonDatHang
+        </th>
+        <th>
+            NguoiDung
+        </th>
+        <th>
+            NgayLap
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaHoaDon)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DonDatHang.MaDonDatHang)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NguoiDung.TenNguoiDung)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NgayLap)
+        </td>
+        <td> 
+            @Html.ActionLink("Chi tiết", "Details", new {id=item.MaHoaDon }) |
+            @Html.ActionLink("xóa", "DeleteHD", new { id = item.MaHoaDon },new { onclick=" return confirm('Are you sure')"})
+        </td>
+    </tr>
+}
+
+</table

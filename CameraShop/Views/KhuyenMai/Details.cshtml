@@ -1,0 +1,30 @@
+﻿@model CameraShop.Models.KhuyenMai
+ 
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>Details</h2>
+<div>
+    <div>
+        <div style="Color:Orange;font-size:14pt;">@Html.DisplayFor(model => model.TenKhuyenMai)</div>
+        <div style="margin-left:20px;Color:red;font-size:9pt;">Từ ngày @Model.NgayBatDau.ToString("dd-MMM-yyyy") đến ngày @Model.NgayKetThuc.ToString("dd-MMM-yyyy")</div>
+        <div style="font-size:12pt;">@Html.DisplayTextFor(model=> model.MoTa) </div>
+
+    </div>
+</div>
+<div>
+   <span style="font-size:14pt;font-weight:bold;">Các tin khuyến mãi khác</span>
+   <div style="margin-left:20px;text-decoration:none;">
+     @foreach (CameraShop.Models.KhuyenMai temp in ViewBag.listKM)
+     {
+        <p> @Html.ActionLink(temp.TenKhuyenMai, "Details", new { id =temp.MaKhuyenMai }) </p>
+     }
+  </div>
+ </div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.MaKhuyenMai }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

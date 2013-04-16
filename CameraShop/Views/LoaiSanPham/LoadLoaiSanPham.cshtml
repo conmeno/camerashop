@@ -1,0 +1,11 @@
+﻿@model IEnumerable<CameraShop.Models.LoaiSanPham> 
+ 
+ <ul>
+    @if (Model != null)
+    {
+     foreach (var loaisp in Model)
+     {
+         <li><a>@loaisp.TenLoaiSanPham</a></li>
+     }
+    }
+</ul>

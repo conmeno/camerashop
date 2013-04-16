@@ -1,0 +1,9 @@
+﻿@{
+    ViewBag.Title = "CartSummary";
+}
+<div class="cart">
+    <img src="../../Content/images/cart-1.png" />
+    <span class="text-cart">
+        @Html.ActionLink("Cart (" + ViewData["CartCount"] + ")","Index","ShoppingCart",new { id = "cart-status" })
+    </span>
+</div>

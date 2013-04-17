@@ -9,16 +9,16 @@
 
 namespace CameraShop.Models
 {
-    using System;
-    using System.Collections.Generic;
-    
     public partial class ChiTietThongSo
     {
         public int MaThongSo { get; set; }
+
         public int MaSanPham { get; set; }
+
         public string GiaTri { get; set; }
-    
+
         public virtual SanPham SanPham { get; set; }
+
         public virtual ThongSo ThongSo { get; set; }
     }
 }

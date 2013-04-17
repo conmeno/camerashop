@@ -14,8 +14,6 @@
             $('#baner').cycle();
         });
 
-
-     
     </script>
 </head>
 <body>
@@ -27,7 +25,7 @@
     @* message box*@
     @{
         if (TempData["myMessage"] != null)
-        { 
+        {
         <div style="display: none; background-color: #F2F2F2;">
             <div id="MessageBox" style="padding: 20px; background-color: #F2F2F2;">
                 <div style="color: Orange; font-size: 14pt; font-weight: bold;">
@@ -35,13 +33,14 @@
                 <h3>@TempData["myMessage"].ToString()</h3>
             </div>
         </div>
-            
+
         }
     }
     @* message box*@
     <div id="wrapper">
         <div class="header">
-            <img class="left no-border" src="../../Content/images/logo.png" />
+            <a href="#">
+                <img class="left no-border" src="../../Content/images/logo2.png" /></a>
             <div class="cnt-r-top">
                 @* begin Cart*@
                 @{Html.RenderAction("CartSummary", "ShoppingCart");}
@@ -53,41 +52,46 @@
                     <div style="float: left; padding-top: 6px;">
                         @{Html.RenderAction("Login", "TaiKhoan");}
                     </div>
+                    @{if (Session["UserName"] == null)
+                      {
+                        <div style="margin-left: 10px; float: left; padding-top: 6px;">
+                            @Html.ActionLink("Đăng ký", "", "DangKy")
+                        </div>
+
+                      }
+
+                      else
+                      {
+                        <div style="margin-left: 10px; float: left; padding-top: 6px;">
+                            Xin chào @Html.ActionLink(Session["TenNguoiDung"].ToString(), "AccountInfo", "TaiKhoan", new { id = Session["UserName"] }, "")
+                        </div>
+                          if (Session["IsAdmin"].ToString() == "1")
+                          {
+                        <div style="margin-left: 10px; float: left; padding-top: 6px;">
+                            <a href="@Url.Content("~/Admin")">Trang quản lý</a>
+                        </div>
+                          }
+                      }
+
+                    }
                     <div class="clear">
                     </div>
                 </div>
-                <div class="clear">
-                </div>
-                @{if (Session["UserName"] == null)
-                  {
-                    @Html.ActionLink("Đăng ký", "", "DangKy");
-
-                  }
-
-                  else
-                  {
-                    <div>
-                        Xin chào @Html.ActionLink(Session["TenNguoiDung"].ToString(), "AccountInfo", "TaiKhoan", new { id = Session["UserName"] }, "")
-                    </div>
-                    if(Session["IsAdmin"].ToString()=="1")
-                    {
-                          <a href="@Url.Content("~/Admin")">Trang quản lý</a> 
-                    }
-                  }
-                }
             </div>
         </div>
         <div class="menu">
             <div class="lmn">
                 <div class="rmn">
                     <ul>
-                        <li class="pad-10px"><a href="@Url.Content("~")">Trang Chủ</a> </li>
+                        <li class="pad-10px"><a href="@Url.Content("~")">&nbsp;&nbsp;&nbsp;Trang Chủ&nbsp;&nbsp;&nbsp;</a>
+                        </li>
                         <li>
                             <img src="../../Content/images/line.jpg" /></li>
-                        <li class="pad-10px"><a href="@Url.Content("~/DanhSachSanPham/LoaiSanPham/1")">Máy Ảnh</a></li>
-                        <li>
+                        <li class="pad-10px"><a href="@Url.Content("~/DanhSachSanPham/SanPhamMoiVe")">Sản phẩm
+                            mới</a></li>
+                        @*    <li>
                             <img src="../../Content/images/line.jpg" /></li>
-                        <li class="pad-10px"><a href="@Url.Content("~/DanhSachSanPham/LoaiSanPham/2")">Máy Quay</a></li>
+                        <li class="pad-10px"><a href="@Url.Content("~/DanhSachSanPham/LoaiSanPham/2")">Máy Quay</a></li>*@
                         <li>
                             <img src="../../Content/images/line.jpg" /></li>
                         <li class="pad-10px"><a href="http://www.facebook.com">Facebook</a></li>
@@ -100,9 +104,6 @@
                         <li>
                             <img src="../../Content/images/line.jpg" /></li>
                         <li class="pad-10px"><a href="@Url.Content("~/LienHe")">Liên hệ</a> </li>
-                        <li>
-                            
-                        
                     </ul>
                 </div>
             </div>
@@ -116,7 +117,7 @@
                     </div>
                     <div class="mn-l-ct">
                         @{
-                            Html.RenderAction("LoadNhaSanXuat", "NhaSanXuat");
+                            Html.RenderAction("LoadLoaiSanPhams", "LoaiSanPham");
                         }
                     </div>
                     <div class="mn-l-bot">
@@ -142,19 +143,14 @@
                                     Value = "1",
                                     Selected = true
                                 });
-                                items.Add(new SelectListItem
-                                {
-                                    Text = "    Nhà sản xuất",
-                                    Value = "2",
 
-                                });
                                 items.Add(new SelectListItem
                                 {
                                     Text = "    Giá",
-                                    Value = "3"
+                                    Value = "2"
                                 });
                                 @Html.DropDownList("TypeSearch", items);
-                            } 
+                            }
                             @Html.Editor("SearchKey")
                             <input type="submit" value="Tìm" name="search" />
                             @*<img style="padding: 6px" src="../../Content/images/search-button.gif" />*@
@@ -174,14 +170,13 @@
                     <div class="sp-ct">
                         <div class="img-sp">
                             <marquee scrollamount="1" truespeed="truespeed" scrolldelay="30" onmouseout="start();"
-                                onmouseover="stop();" direction="up" style="height: 300px"> 
+                                onmouseover="stop();" direction="up" style="height: 300px">
                                   @*begin sanphammoi*@
 
-              
                                   @{
-                                      Html.RenderAction("SanPhamMoi", "DanhSachSanPham"); 
+                                      Html.RenderAction("SanPhamMoi", "DanhSachSanPham");
                                    }
-                                @*begin sanphammoi*@          
+                                @*begin sanphammoi*@
                           </marquee>
                             <br />
                         </div>
@@ -223,7 +218,7 @@
     <br />
     <div class="footer">
         <p>
-            CameraShop web development © All rights reserved</p>
+            Men's Shopping web development © All rights reserved</p>
     </div>
 </body>
 </html>

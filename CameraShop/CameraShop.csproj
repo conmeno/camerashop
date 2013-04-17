@@ -487,6 +487,9 @@
     <Content Include="Views\HoaDon\TaoHoaDon.cshtml" />
     <Content Include="Views\BaoCao\Index.cshtml" />
     <None Include="rptDailyExpense.rpt" />
+    <Content Include="Views\LoaiSanPham\LoadLoaiSanPhams.cshtml" />
+    <Content Include="Views\DanhSachSanPham\SanPhamMoiMenu.cshtml" />
+    <Content Include="Views\DanhSachSanPham\SanPhamMoiVe.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

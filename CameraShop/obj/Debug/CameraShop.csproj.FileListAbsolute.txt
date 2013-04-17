@@ -19,3 +19,9 @@ H:\CameraShop\CameraShop\obj\Debug\ResolveAssemblyReference.cache
 H:\CameraShop\CameraShop\obj\Debug\CameraShop.dll
 H:\CameraShop\CameraShop\obj\Debug\CameraShop.pdb
 H:\tram\CameraShop\CameraShop\obj\Debug\CameraShop.csprojResolveAssemblyReference.cache
+D:\CameraShop\CameraShop\bin\CameraShop.dll
+D:\CameraShop\CameraShop\bin\CameraShop.pdb
+D:\CameraShop\CameraShop\bin\EntityFramework.dll
+D:\CameraShop\CameraShop\bin\EntityFramework.xml
+D:\CameraShop\CameraShop\obj\Debug\CameraShop.dll
+D:\CameraShop\CameraShop\obj\Debug\CameraShop.pdb

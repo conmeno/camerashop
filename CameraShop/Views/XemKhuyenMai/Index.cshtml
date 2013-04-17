@@ -2,20 +2,19 @@
 @{
     ViewBag.Title = "Index";
 }
- 
 <div>
     <div>
         <div>
             <h3>
                 <em>@Html.DisplayFor(model => model.TenKhuyenMai)</em>:
             </h3>
-            <div style="margin-left: 20px; color: red; font-size: 9pt;">
+            <div style="margin-left: 20px; color: #a5a5a5; font-size: 9px;">
                 Từ ngày @Model.NgayBatDau.ToString("dd-MMM-yyyy") đến ngày @Model.NgayKetThuc.ToString("dd-MMM-yyyy")</div>
-            <div style="font-size: 12pt;">@Html.DisplayTextFor(model => model.MoTa)
+            <div style="font-size: 14px; margin-top: 20px;">@Html.DisplayTextFor(model => model.MoTa)
             </div>
         </div>
     </div>
-    <div>
+    <div style="margin-top: 30px;">
         <span style="font-size: 14pt; font-weight: bold;">Các tin khuyến mãi khác</span>
         <div style="margin-left: 20px; text-decoration: none;">
             @foreach (CameraShop.Models.KhuyenMai temp in ViewBag.listKM)

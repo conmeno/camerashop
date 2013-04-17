@@ -12,13 +12,12 @@
             $('#baner').cycle();
         });
 
-     
     </script>
 </head>
 <body>
     <div id="wrapper">
         <div class="header">
-            <img class="left no-border" src="../../Content/images/logo.png" />
+            <img class="left no-border" src="../../Content/images/logo2.png" />
         </div>
         <div class="menu">
             <div class="lmn">
@@ -38,7 +37,7 @@
                     </div>
                     <div class="mn-l-ct">
                         @{
-                            Html.RenderAction("ListActionAdmin", "Admin"); 
+                            Html.RenderAction("ListActionAdmin", "Admin");
                         }
                     </div>
                     <div class="mn-l-bot">
@@ -52,7 +51,6 @@
                     if (Session["isAdmin"] == null)
                     {
                         Url.Action("Index", "Home");
-
 
                     }
                 }

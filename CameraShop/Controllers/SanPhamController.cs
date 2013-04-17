@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using CameraShop.Models;
 
 namespace CameraShop.Controllers
-{ 
+{
     public class SanPhamController : Controller
     {
         private CameraShopEntities db = new CameraShopEntities();
@@ -16,7 +15,6 @@ namespace CameraShop.Controllers
         //
         // GET: /SanPham/
 
- 
         public ActionResult Index()
         {
             if (Session["isAdmin"] != null && Session["isAdmin"].ToString() == "1")
@@ -27,6 +25,7 @@ namespace CameraShop.Controllers
             TempData["myMessage"] = "Bạn cần đăng nhập bằng tài khoản Admin để xe được trang này (^_^)";
             return Redirect("~");
         }
+
         //
         // GET: /SanPham/Details/5
 
@@ -38,7 +37,7 @@ namespace CameraShop.Controllers
 
         //
         // GET: /SanPham/Create
- 
+
         public ActionResult Create()
         {
             if (Session["isAdmin"] != null && Session["isAdmin"].ToString() == "1")
@@ -49,25 +48,34 @@ namespace CameraShop.Controllers
                 ViewBag.ThongSo = db.ThongSoes.ToList();
                 var sanpham = new SanPham();
 
-
-
                 return View();
             }
             TempData["myMessage"] = "Bạn cần đăng nhập bằng tài khoản Admin để xe được trang này (^_^)";
             return Redirect("~");
         }
+
         //
         // POST: /SanPham/Create
 
         [HttpPost]
-        public ActionResult Create(SanPham sanpham,FormCollection form)
+        public ActionResult Create(SanPham sanpham, FormCollection form)
         {
             if (ModelState.IsValid)
             {
                 for (int i = 0; i < Request.Files.Count; i++)
                 {
                     var file = Request.Files[i];
-                     
+                }
+                sanpham.NgayDang = DateTime.Now;
+                sanpham.MaDongSanPham = 1;
+                sanpham.MaKhuyenMai = 1;
+                if (sanpham.ChiTietThongSoes.Count > 0)
+                {
+                    foreach (ChiTietThongSo item in sanpham.ChiTietThongSoes)
+                    {
+                        if (item.GiaTri == null)
+                            item.GiaTri = "";
+                    }
                 }
                 db.SanPhams.Add(sanpham);
                 db.SaveChanges();
@@ -75,16 +83,16 @@ namespace CameraShop.Controllers
                 return RedirectToActionPermanent("Create", "AnhSanPham", new { id = sanpham.MaSanPham });
             }
 
-            ViewBag.MaDongSanPham = new SelectList(db.DongSanPhams, "MaDongSanPham", "TenDongSanPham",sanpham.MaDongSanPham);
+            ViewBag.MaDongSanPham = new SelectList(db.DongSanPhams, "MaDongSanPham", "TenDongSanPham", sanpham.MaDongSanPham);
             ViewBag.MaKhuyenMai = new SelectList(db.KhuyenMais, "MaKhuyenMai", "TenKhuyenMai", sanpham.MaKhuyenMai);
             ViewBag.MaLoaiSanPham = new SelectList(db.LoaiSanPhams, "MaLoaiSanPham", "TenLoaiSanPham", sanpham.MaLoaiSanPham);
             ViewBag.ThongSo = db.ThongSoes.ToList();
             return View(sanpham);
         }
-        
+
         //
         // GET: /SanPham/Edit/5
- 
+
         public ActionResult Edit(int id)
         {
             if (Session["isAdmin"] != null && Session["isAdmin"].ToString() == "1")
@@ -99,6 +107,7 @@ namespace CameraShop.Controllers
             TempData["myMessage"] = "Bạn cần đăng nhập bằng tài khoản Admin để xe được trang này (^_^)";
             return Redirect("~");
         }
+
         //
         // POST: /SanPham/Edit/5
 
@@ -107,7 +116,18 @@ namespace CameraShop.Controllers
         {
             if (ModelState.IsValid)
             {
+                sanpham.MaDongSanPham = 1;
+                sanpham.MaKhuyenMai = 1;
+                if (sanpham.ChiTietThongSoes.Count > 0)
+                {
+                    foreach (ChiTietThongSo item in sanpham.ChiTietThongSoes)
+                    {
+                        if (item.GiaTri == null)
+                            item.GiaTri = "";
+                    }
+                }
                 db.Entry(sanpham).State = EntityState.Modified;
+
                 db.SaveChanges();
                 if (Request.Files.Count > 0)
                 {
@@ -123,8 +143,7 @@ namespace CameraShop.Controllers
 
         //
         // GET: /SanPham/Delete/5
- 
- 
+
         public ActionResult Delete(int id)
         {
             if (Session["isAdmin"] != null && Session["isAdmin"].ToString() == "1")
@@ -135,12 +154,13 @@ namespace CameraShop.Controllers
             TempData["myMessage"] = "Bạn cần đăng nhập bằng tài khoản Admin để xe được trang này (^_^)";
             return Redirect("~");
         }
+
         //
         // POST: /SanPham/Delete/5
 
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
-        {            
+        {
             SanPham sanpham = db.SanPhams.Find(id);
             db.SanPhams.Remove(sanpham);
             db.SaveChanges();
@@ -163,8 +183,6 @@ namespace CameraShop.Controllers
                 pic.URL = "/upload/" + file.FileName;
                 picProduct.Add(pic);
             }
-            
         }
-
     }
 }

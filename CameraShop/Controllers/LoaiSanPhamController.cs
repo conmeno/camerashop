@@ -1,21 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using CameraShop.Models;
 
 namespace CameraShop.Controllers
-{ 
+{
     public class LoaiSanPhamController : Controller
     {
         private CameraShopEntities db = new CameraShopEntities();
 
         //
         // GET: /LoaiSanPham/
- 
+
         public ActionResult Index()
         {
             if (Session["isAdmin"] != null && Session["isAdmin"].ToString() == "1")
@@ -25,6 +21,7 @@ namespace CameraShop.Controllers
             TempData["myMessage"] = "Bạn cần đăng nhập bằng tài khoản Admin để xe được trang này (^_^)";
             return Redirect("~");
         }
+
         //
         // GET: /LoaiSanPham/Details/5
 
@@ -36,7 +33,7 @@ namespace CameraShop.Controllers
 
         //
         // GET: /LoaiSanPham/Create
- 
+
         public ActionResult Create()
         {
             if (Session["isAdmin"] != null && Session["isAdmin"].ToString() == "1")
@@ -46,6 +43,7 @@ namespace CameraShop.Controllers
             TempData["myMessage"] = "Bạn cần đăng nhập bằng tài khoản Admin để xe được trang này (^_^)";
             return Redirect("~");
         }
+
         //
         // POST: /LoaiSanPham/Create
 
@@ -56,15 +54,15 @@ namespace CameraShop.Controllers
             {
                 db.LoaiSanPhams.Add(loaisanpham);
                 db.SaveChanges();
-                return RedirectToAction("Index");  
+                return RedirectToAction("Index");
             }
 
             return View(loaisanpham);
         }
-        
+
         //
         // GET: /LoaiSanPham/Edit/5
- 
+
         public ActionResult Edit(int id)
         {
             if (Session["isAdmin"] != null && Session["isAdmin"].ToString() == "1")
@@ -75,6 +73,7 @@ namespace CameraShop.Controllers
             TempData["myMessage"] = "Bạn cần đăng nhập bằng tài khoản Admin để xe được trang này (^_^)";
             return Redirect("~");
         }
+
         //
         // POST: /LoaiSanPham/Edit/5
 
@@ -92,7 +91,7 @@ namespace CameraShop.Controllers
 
         //
         // GET: /LoaiSanPham/Delete/5
- 
+
         public ActionResult Delete(int id)
         {
             LoaiSanPham loaisanpham = db.LoaiSanPhams.Find(id);
@@ -104,7 +103,7 @@ namespace CameraShop.Controllers
 
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
-        {            
+        {
             LoaiSanPham loaisanpham = db.LoaiSanPhams.Find(id);
             db.LoaiSanPhams.Remove(loaisanpham);
             db.SaveChanges();
@@ -117,6 +116,10 @@ namespace CameraShop.Controllers
             base.Dispose(disposing);
         }
 
-
+        [ChildActionOnly]
+        public ActionResult LoadLoaiSanPhams()
+        {
+            return PartialView(db.LoaiSanPhams.ToList());
+        }
     }
 }

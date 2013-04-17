@@ -6,8 +6,6 @@
         $('#baner').cycle();
     });
 
-
-     
 </script>
 <script type="text/javascript">
     $(document).ready(function () {
@@ -17,23 +15,23 @@
 </script>
 @{
     if (Session["UserName"] != null)
-    {        
-                         
+    {
+
     <form action="@Url.Action("Logout", "TaiKhoan")" method="get">
     <input type="submit" id="logoutButton" name="logout" value="Logout" />
     </form>
-                
+
     }
     else
-    { 
+    {
     <span id="loginBox" class="text-cart">Đăng nhập</span>
     <div style="display: none; background-color: #F2F2F2; width: 420px;">
-        <div id="login" style="padding: 20px; background-color: #F2F2F2; width: 400px;">
+        <div id="login" style="padding: 20px; background-color: #F2F2F2; width: 450px;">
             <img style="float: right" alt="padlock" src="../../Content/images/padlock.png" />
             <h2>
                 Đăng nhập vào CameraShop</h2>
             @using (Html.BeginForm())
-            { 
+            {
                 <div id="loginerror">
                 </div>
                 <div>
@@ -54,13 +52,13 @@
                     Forgot Password?</a>
                 <br />
                 <br />
-    
+
                 <input type="submit" value="Login" id="loginSM" class="large green awesome" />
-                         
+
             }
         </div>
     </div>
-                  
+
     }
-                
+
 }

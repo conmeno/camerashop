@@ -12,15 +12,15 @@
                 <em>@Html.DisplayFor(model => model.TieuDe)</em>:
             </h3>
         </div>
-        <div style="margin-left: 20px; color: red; font-size: 9pt;">
+        <div style="margin-left: 20px; color: #a5a5a5; font-size: 9px;">
             Ngày đăng @Model.NgayDang.ToString("dd-MMM-yyyy")</div>
-        <div style="font-size: 12pt;">@Html.DisplayTextFor(model => model.NoiDung)
+        <div style="font-size: 14px;">@Html.DisplayTextFor(model => model.NoiDung)
         </div>
     </div>
 </div>
 <div style="color: #e7e7e7; font-size: 14pt; font-weight: bold;">
     -------------------------------------------------------------------</div>
-<div>
+<div style="margin-top: 30px;">
     <span style="font-size: 14pt; font-weight: bold;">Các tin khuyến mãi khác</span>
     <div style="margin-left: 20px; text-decoration: none;">
         @foreach (CameraShop.Models.TinTuc temp in ViewBag.listTT)

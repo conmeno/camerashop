@@ -19,43 +19,43 @@
     });
 </script>
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Thêm sản phẩm mới", "Create")
 </p>
 <div class="demo_jui">
     <table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
         <thead>
             <tr>
                 <th>
-                    MaSanPham
                 </th>
                 <th>
+                    Mả SP
+                </th>
+                @*<th>
                     DongSanPham
-                </th>
+                </th>*@
                 <th>
-                    LoaiSanPham
+                    Loại
                 </th>
-                <th>
+                @*  <th>
                     KhuyenMai
-                </th>
+                </th>*@
                 <th>
-                    TenSanPham
+                    Tên
                 </th>
                 <th>
                     Hình ảnh
                 </th>
                 <th>
-                    GiaBan
+                    Giá
                 </th>
                 <th>
-                    NgayDang
+                    Ngày đăng
                 </th>
                 <th>
-                    SoLuong
+                    Số lượng
                 </th>
                 <th>
-                    TinhTrang
-                </th>
-                <th>
+                    Trình trạng
                 </th>
             </tr>
         </thead>
@@ -64,17 +64,22 @@
             {
                 <tr class="gradeA">
                     <td>
-                        @Html.DisplayFor(modelItem => item.MaSanPham)
+                        @Html.ActionLink("Sửa", "Edit", new { id = item.MaSanPham }) |
+                        @Html.ActionLink("Chi tiết", "Details", new { id = item.MaSanPham }) |
+                        @Html.ActionLink("Xóa", "Delete", new { id = item.MaSanPham })
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.DongSanPham.TenDongSanPham)
+                        @Html.DisplayFor(modelItem => item.MaSanPham)
                     </td>
+                    @* <td>
+                        @Html.DisplayFor(modelItem => item.DongSanPham.TenDongSanPham)
+                    </td>*@
                     <td>
                         @Html.DisplayFor(modelItem => item.LoaiSanPham.TenLoaiSanPham)
                     </td>
-                    <td>
+                    @*  <td>
                         @Html.DisplayFor(modelItem => item.KhuyenMai.TenKhuyenMai)
-                    </td>
+                    </td>*@
                     <td>
                         @Html.DisplayFor(modelItem => item.TenSanPham)
                     </td>
@@ -92,11 +97,6 @@
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.TinhTrang)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.MaSanPham }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.MaSanPham }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.MaSanPham })
                     </td>
                 </tr>
             }

@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using CameraShop.Models;
 
 namespace CameraShop.Controllers
-{ 
+{
     public class NhaSanXuatController : Controller
     {
         private CameraShopEntities db = new CameraShopEntities();
@@ -37,7 +33,7 @@ namespace CameraShop.Controllers
 
         //
         // GET: /NhaSanXuat/Create
- 
+
         public ActionResult Create()
         {
             if (Session["isAdmin"] != null && Session["isAdmin"].ToString() == "1")
@@ -47,6 +43,7 @@ namespace CameraShop.Controllers
             TempData["myMessage"] = "Bạn cần đăng nhập bằng tài khoản Admin để xe được trang này (^_^)";
             return Redirect("~");
         }
+
         //
         // POST: /NhaSanXuat/Create
 
@@ -57,15 +54,15 @@ namespace CameraShop.Controllers
             {
                 db.NhaSanXuats.Add(nhasanxuat);
                 db.SaveChanges();
-                return RedirectToAction("Index");  
+                return RedirectToAction("Index");
             }
 
             return View(nhasanxuat);
         }
-        
+
         //
         // GET: /NhaSanXuat/Edit/5
- 
+
         //
         // POST: /NhaSanXuat/Edit/5
         public ActionResult Edit(int id)
@@ -78,6 +75,7 @@ namespace CameraShop.Controllers
             TempData["myMessage"] = "Bạn cần đăng nhập bằng tài khoản Admin để xe được trang này (^_^)";
             return Redirect("~");
         }
+
         [HttpPost]
         public ActionResult Edit(NhaSanXuat nhasanxuat)
         {
@@ -92,7 +90,7 @@ namespace CameraShop.Controllers
 
         //
         // GET: /NhaSanXuat/Delete/5
- 
+
         public ActionResult Delete(int id)
         {
             NhaSanXuat nhasanxuat = db.NhaSanXuats.Find(id);
@@ -104,7 +102,7 @@ namespace CameraShop.Controllers
 
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
-        {            
+        {
             NhaSanXuat nhasanxuat = db.NhaSanXuats.Find(id);
             db.NhaSanXuats.Remove(nhasanxuat);
             db.SaveChanges();
@@ -116,10 +114,11 @@ namespace CameraShop.Controllers
             db.Dispose();
             base.Dispose(disposing);
         }
-        [ChildActionOnly]
-        public ActionResult LoadNhaSanXuat()
-        {
-            return PartialView(db.NhaSanXuats.ToList());
-        }
+
+        //[ChildActionOnly]
+        //public ActionResult LoadNhaSanXuat()
+        //{
+        //    return PartialView(db.NhaSanXuats.ToList());
+        //}
     }
 }

@@ -132,6 +132,7 @@
     <EntitySetMapping Name="SanPhams">
       <EntityTypeMapping TypeName="CameraShopModel.SanPham">
         <MappingFragment StoreEntitySet="SanPham">
+          <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="MaSanPham" ColumnName="MaSanPham" />
           <ScalarProperty Name="MaDongSanPham" ColumnName="MaDongSanPham" />
           <ScalarProperty Name="MaLoaiSanPham" ColumnName="MaLoaiSanPham" />

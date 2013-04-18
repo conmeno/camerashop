@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="CameraShopModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="CameraShopModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="CameraShopModelStoreContainer">
           <EntitySet Name="AnhSanPham" EntityType="CameraShopModel.Store.AnhSanPham" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Cart" EntityType="CameraShopModel.Store.Cart" store:Type="Tables" Schema="dbo" />
@@ -225,6 +225,7 @@
           <Property Name="NgayDang" Type="datetime" Nullable="false" />
           <Property Name="SoLuong" Type="int" Nullable="false" />
           <Property Name="TinhTrang" Type="bit" />
+          <Property Name="Description" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -293,7 +294,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ChiTietDonDatHang_DonDatHang">
-          <End Role="DonDatHang" Type="CameraShopModel.Store.DonDatHang" Multiplicity="1" />
+          <End Role="DonDatHang" Type="CameraShopModel.Store.DonDatHang" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="ChiTietDonDatHang" Type="CameraShopModel.Store.ChiTietDonDatHang" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="DonDatHang">
@@ -474,8 +477,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CameraShopModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
@@ -728,6 +730,7 @@
           <NavigationProperty Name="DongSanPham" Relationship="CameraShopModel.FK_SanPham_DongSanPham" FromRole="SanPham" ToRole="DongSanPham" />
           <NavigationProperty Name="KhuyenMai" Relationship="CameraShopModel.FK_SanPham_KhuyenMai" FromRole="SanPham" ToRole="KhuyenMai" />
           <NavigationProperty Name="LoaiSanPham" Relationship="CameraShopModel.FK_SanPham_LoaiSanPham" FromRole="SanPham" ToRole="LoaiSanPham" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -1065,7 +1068,8 @@
             <ScalarProperty Name="TenNhomNguoiDung" ColumnName="TenNhomNguoiDung" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="SanPhams"><EntityTypeMapping TypeName="CameraShopModel.SanPham"><MappingFragment StoreEntitySet="SanPham">
-            <ScalarProperty Name="MaSanPham" ColumnName="MaSanPham" />
+            <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="MaSanPham" ColumnName="MaSanPham" />
             <ScalarProperty Name="MaDongSanPham" ColumnName="MaDongSanPham" />
             <ScalarProperty Name="MaLoaiSanPham" ColumnName="MaLoaiSanPham" />
             <ScalarProperty Name="MaKhuyenMai" ColumnName="MaKhuyenMai" />

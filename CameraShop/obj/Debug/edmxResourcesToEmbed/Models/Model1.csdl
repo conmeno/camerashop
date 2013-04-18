@@ -249,6 +249,7 @@
     <NavigationProperty Name="DongSanPham" Relationship="CameraShopModel.FK_SanPham_DongSanPham" FromRole="SanPham" ToRole="DongSanPham" />
     <NavigationProperty Name="KhuyenMai" Relationship="CameraShopModel.FK_SanPham_KhuyenMai" FromRole="SanPham" ToRole="KhuyenMai" />
     <NavigationProperty Name="LoaiSanPham" Relationship="CameraShopModel.FK_SanPham_LoaiSanPham" FromRole="SanPham" ToRole="LoaiSanPham" />
+    <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="sysdiagram">
     <Key>

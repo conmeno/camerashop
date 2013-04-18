@@ -220,6 +220,7 @@
     <Property Name="NgayDang" Type="datetime" Nullable="false" />
     <Property Name="SoLuong" Type="int" Nullable="false" />
     <Property Name="TinhTrang" Type="bit" />
+    <Property Name="Description" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
@@ -288,7 +289,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_ChiTietDonDatHang_DonDatHang">
-    <End Role="DonDatHang" Type="CameraShopModel.Store.DonDatHang" Multiplicity="1" />
+    <End Role="DonDatHang" Type="CameraShopModel.Store.DonDatHang" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="ChiTietDonDatHang" Type="CameraShopModel.Store.ChiTietDonDatHang" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="DonDatHang">

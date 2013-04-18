@@ -19,16 +19,14 @@
 
 
         //Define FCKEditor
-        CKEDITOR.replace('MoTa', {
+        CKEDITOR.replace('Description', {
             filebrowserBrowseUrl: '../Content/ckfinder/ckfinder.html',
             filebrowserImageBrowseUrl: '../Content/ckfinder/ckfinder.html?Type=Images',
             filebrowserFlashBrowseUrl: '../Content/ckfinder/ckfinder.html?Type=Flash',
             filebrowserUploadUrl: '../Content/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
             filebrowserImageUploadUrl: '../Content/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
             filebrowserFlashUploadUrl: '../Content/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash'
-        });
-
-        $("#NgayDang").datepicker();
+        }); 
     });
 </script>
 @using (Html.BeginForm())

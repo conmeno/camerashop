@@ -11,7 +11,7 @@ namespace CameraShop.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.Web.Mvc;
+ using System.Web.Mvc;
     
     public partial class KhuyenMai
     {
@@ -22,7 +22,7 @@ namespace CameraShop.Models
     
         public int MaKhuyenMai { get; set; }
         public string TenKhuyenMai { get; set; }
-        [AllowHtml]
+ [AllowHtml]
         public string MoTa { get; set; }
         public System.DateTime NgayBatDau { get; set; }
         public System.DateTime NgayKetThuc { get; set; }

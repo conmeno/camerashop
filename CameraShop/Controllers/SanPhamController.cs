@@ -58,6 +58,7 @@ namespace CameraShop.Controllers
         // POST: /SanPham/Create
 
         [HttpPost]
+        [ValidateInput(false)]
         public ActionResult Create(SanPham sanpham, FormCollection form)
         {
             if (ModelState.IsValid)
@@ -102,6 +103,7 @@ namespace CameraShop.Controllers
                 ViewBag.MaKhuyenMai = new SelectList(db.KhuyenMais, "MaKhuyenMai", "TenKhuyenMai", sanpham.MaKhuyenMai);
                 ViewBag.MaLoaiSanPham = new SelectList(db.LoaiSanPhams, "MaLoaiSanPham", "TenLoaiSanPham", sanpham.MaLoaiSanPham);
                 ViewBag.ThongSo = db.ThongSoes.ToList();
+                ViewBag.CTThongSo = sanpham.ChiTietThongSoes;
                 return View(sanpham);
             }
             TempData["myMessage"] = "Bạn cần đăng nhập bằng tài khoản Admin để xe được trang này (^_^)";
@@ -116,8 +118,9 @@ namespace CameraShop.Controllers
         {
             if (ModelState.IsValid)
             {
-                ////sanpham.MaDongSanPham = 1;
-                ////sanpham.MaKhuyenMai = 1;
+                sanpham.MaDongSanPham = 1;
+                sanpham.MaKhuyenMai = 1;
+                sanpham.NgayDang = DateTime.Now;
                 ////if (sanpham.ChiTietThongSoes.Count > 0)
                 ////{
                 ////    foreach (ChiTietThongSo item in sanpham.ChiTietThongSoes)
@@ -130,14 +133,9 @@ namespace CameraShop.Controllers
                 //sanpham.LoaiSanPham = db.LoaiSanPhams.Find(sanpham.MaLoaiSanPham);
                 //sanpham.KhuyenMai = db.KhuyenMais.Find(1);
                 //sanpham.DongSanPham = db.DongSanPhams.Find(1);
-
+                
                 db.Entry(sanpham).State = EntityState.Modified;
-
                 db.SaveChanges();
-                if (Request.Files.Count > 0)
-                {
-                    var a = 3;
-                }
                 return RedirectToAction("Index");
             }
             ViewBag.MaDongSanPham = new SelectList(db.DongSanPhams, "MaDongSanPham", "TenDongSanPham", sanpham.MaDongSanPham);

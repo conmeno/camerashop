@@ -31,6 +31,8 @@ namespace CameraShop.Models
         public System.DateTime NgayDang { get; set; }
         public int SoLuong { get; set; }
         public Nullable<bool> TinhTrang { get; set; }
+        public string Description { get; set; }
+
     
         public virtual ICollection<AnhSanPham> AnhSanPhams { get; set; }
         public virtual ICollection<Cart> Carts { get; set; }

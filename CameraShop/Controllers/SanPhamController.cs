@@ -116,16 +116,21 @@ namespace CameraShop.Controllers
         {
             if (ModelState.IsValid)
             {
-                sanpham.MaDongSanPham = 1;
-                sanpham.MaKhuyenMai = 1;
-                if (sanpham.ChiTietThongSoes.Count > 0)
-                {
-                    foreach (ChiTietThongSo item in sanpham.ChiTietThongSoes)
-                    {
-                        if (item.GiaTri == null)
-                            item.GiaTri = "";
-                    }
-                }
+                ////sanpham.MaDongSanPham = 1;
+                ////sanpham.MaKhuyenMai = 1;
+                ////if (sanpham.ChiTietThongSoes.Count > 0)
+                ////{
+                ////    foreach (ChiTietThongSo item in sanpham.ChiTietThongSoes)
+                ////    {
+                ////        if (item.GiaTri == null)
+                ////            item.GiaTri = "";
+                ////    }
+                ////}
+
+                //sanpham.LoaiSanPham = db.LoaiSanPhams.Find(sanpham.MaLoaiSanPham);
+                //sanpham.KhuyenMai = db.KhuyenMais.Find(1);
+                //sanpham.DongSanPham = db.DongSanPhams.Find(1);
+
                 db.Entry(sanpham).State = EntityState.Modified;
 
                 db.SaveChanges();

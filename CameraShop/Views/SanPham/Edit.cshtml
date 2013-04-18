@@ -19,13 +19,13 @@
             @Html.EditorFor(model => model.MaSanPham)
             @Html.ValidationMessageFor(model => model.MaSanPham)
         </div>
-        @* <div class="editor-label">
+         <div class="editor-label">
             @Html.LabelFor(model => model.MaDongSanPham, "DongSanPham")
         </div>
         <div class="editor-field">
             @Html.DropDownList("MaDongSanPham", String.Empty)
             @Html.ValidationMessageFor(model => model.MaDongSanPham)
-        </div>*@
+        </div>
         <div class="editor-label">
             @Html.LabelFor(model => model.MaLoaiSanPham, "LoaiSanPham")
         </div>
@@ -33,13 +33,13 @@
             @Html.DropDownList("MaLoaiSanPham", String.Empty)
             @Html.ValidationMessageFor(model => model.MaLoaiSanPham)
         </div>
-        @*   <div class="editor-label">
+           <div class="editor-label">
             @Html.LabelFor(model => model.MaKhuyenMai, "KhuyenMai")
         </div>
         <div class="editor-field">
             @Html.DropDownList("MaKhuyenMai", String.Empty)
             @Html.ValidationMessageFor(model => model.MaKhuyenMai)
-        </div>*@
+        </div>
         <div class="editor-label">
             @Html.LabelFor(model => model.TenSanPham)
         </div>
@@ -89,6 +89,7 @@
                         <td>
                             <input type="text" name="ChiTietThongSoes[@i].GiaTri"/>
                             <input type="hidden" name="ChiTietThongSoes[@i].MaThongSo" value="@ThongSo[i].MaThongSo"/>
+                            <input type="hidden" name="ChiTietThongSoes[@i].MaSanPham" value="@Model.MaSanPham"/>
                         </td>
                     </tr>
                 }

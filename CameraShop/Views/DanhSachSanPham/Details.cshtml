@@ -10,11 +10,11 @@
 
         $('#SoLuongMua').spin({
             lock: true,
-            max: 0;//"@Model.SoLuong",
+            max:@Model.SoLuong,
             min: 0
         });
     });
-</script>
+
 </script>
 <style>
     #SoLuongMua
@@ -30,9 +30,9 @@
             <span class="text_xanh_lange">@Model.TenSanPham</span>
         </div>
         <div class="sub2_top_head_right">
-            <ul>
+            @*  <ul>
                 <li><a href="#">HOME</a></li>
-            </ul>
+            </ul>*@
         </div>
         <div class="clear">
         </div>
@@ -160,6 +160,6 @@
     <div class="clear">
     </div>
 </div>
-<div style="margin-top: 30px;">
+<div style="margin-top: 30px; padding: 20px;">
     @Html.Raw(HttpUtility.HtmlDecode(Model.Description));
 </div>

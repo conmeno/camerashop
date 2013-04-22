@@ -459,10 +459,7 @@ body
     font-weight: bold;
 }
 .border-sp
-{
-    border-bottom-color: #999999;
-    border-bottom-width: 1px;
-    border-bottom-style: dotted;
+{ 
     border-top-color: #999999;
     border-top-width: 1px;
     border-top-style: dotted;
@@ -634,7 +631,7 @@ input.logins
 .sanphammoi_marquee a img
 {
     width: 150px;
-    height: 150px;
+    height: 200px;
 }
 .sanphammoi_marquee
 {
@@ -709,6 +706,7 @@ input.logins
 .sub2_top_content_right
 {
     float: right;
+    width:320px;
 }
 .sub2_pro_detail
 {

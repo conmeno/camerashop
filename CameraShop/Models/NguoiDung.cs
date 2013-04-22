@@ -39,8 +39,8 @@ namespace CameraShop.Models
             ErrorMessage = "Email không hợp lệ")]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
-        [RegularExpression(@"[0-9]",
-            ErrorMessage = "Email không hợp lệ")]
+        [RegularExpression(@"[0-9]{2,4}",
+            ErrorMessage = "Năm sinh không hợp lệ")]
         [DisplayName("Năm sinh")]
         public string NamSinh { get; set; }
     

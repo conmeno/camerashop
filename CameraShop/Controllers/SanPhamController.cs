@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
 using CameraShop.Models;
+using System.Data;
 
 namespace CameraShop.Controllers
 {
@@ -132,15 +133,22 @@ namespace CameraShop.Controllers
                 //sanpham.LoaiSanPham = db.LoaiSanPhams.Find(sanpham.MaLoaiSanPham);
                 //sanpham.KhuyenMai = db.KhuyenMais.Find(1);
                 //sanpham.DongSanPham = db.DongSanPhams.Find(1);
+                db.Entry(sanpham).State = EntityState.Modified;
+                db.SaveChanges();
                 if (sanpham.ChiTietThongSoes.Count > 0)
                 {
                     foreach (var item in sanpham.ChiTietThongSoes)
                     {
                         ChiTietThongSo ct = db.ChiTietThongSoes.Where(s => s.MaSanPham == item.MaSanPham & s.MaThongSo == item.MaThongSo).ToList()[0];
                         if (ct != null)
+                        {
                             ct.GiaTri = item.GiaTri;
-                        int a = 3;
+                            db.Entry(ct).State = EntityState.Modified;
+                            db.SaveChanges();
+                        }
+                        
                     }
+                   
                     //db.ChiTietThongSoes.Find()
                     //foreach (var item in db.ChiTietThongSoes)
                     //{
@@ -148,8 +156,7 @@ namespace CameraShop.Controllers
 
                     //db.Entry(ChiTietThongSoes).State = EntityState.Modified;
                 }
-                // db.Entry(sanpham).State = EntityState.Modified;
-                db.SaveChanges();
+               
                 return RedirectToAction("Index");
             }
             ViewBag.MaDongSanPham = new SelectList(db.DongSanPhams, "MaDongSanPham", "TenDongSanPham", sanpham.MaDongSanPham);

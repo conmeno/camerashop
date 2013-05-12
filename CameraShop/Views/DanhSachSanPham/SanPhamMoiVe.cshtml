@@ -7,7 +7,8 @@
     <div class="cnt-r-cnt-l">
         <div class="sanphammoi">
             <div class="top-sp-moi">
-                Sản phẩm mới</div>
+                Sản phẩm mới
+            </div>
             <div class="bot-sp-moi">
                 @{int count = 0;
 
@@ -21,7 +22,19 @@
                         </div>
                         @if (item.AnhSanPhams.Count > 0)
                         {
-
+                            if (item.IsNew)
+                            { 
+                            <div class="isnew">
+                                <a href="#">
+                                    <img src="../../Content/images/new.png" /></a>
+                            </div>
+                            }
+                            if (item.Percent != int.MinValue && item.Percent > 0)
+                            {
+                            <div class="ispercent">
+                            -@item.Percent %
+                            </div>
+                            }
                             string UrlImg = item.AnhSanPhams.ToList()[0].URL;
 
                             <a href="@Url.Content("~/DanhSachSanPham/Details/" + @item.MaSanPham)">
@@ -33,7 +46,8 @@
                                 <img class='border-img' src='/Content/images/no-images.png' /></a>
                         }
                         <div class="name">
-                            @item.GiaBan.ToString("##,#") VNĐ</div>
+                            @item.GiaBan.ToString("##,#") VNĐ
+                        </div>
                         <a href="">
                             <img class="no-border" src="../../Content/images/btn_cart.png" /></a>
                     </div>

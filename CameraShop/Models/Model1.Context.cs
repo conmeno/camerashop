@@ -43,5 +43,6 @@ namespace CameraShop.Models
         public DbSet<TaiKhoan> TaiKhoans { get; set; }
         public DbSet<ThongSo> ThongSoes { get; set; }
         public DbSet<TinTuc> TinTucs { get; set; }
+        public DbSet<Parameter> Parameters { get; set; }
     }
 }

@@ -74,6 +74,13 @@
             @Html.EditorFor(model => model.GiaBan)
             @Html.ValidationMessageFor(model => model.GiaBan)
         </div>
+             <div class="editor-label">
+            @Html.LabelFor(model => model.Gia2)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Gia2)
+            @Html.ValidationMessageFor(model => model.Gia2)
+        </div>
         @* <div class="editor-label">
             @Html.LabelFor(model => model.NgayDang)
         </div>
@@ -88,12 +95,33 @@
             @Html.EditorFor(model => model.SoLuong)
             @Html.ValidationMessageFor(model => model.SoLuong)
         </div>
-        <div class="editor-label">
+       @* <div class="editor-label">
             @Html.LabelFor(model => model.TinhTrang)
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.TinhTrang)
             @Html.ValidationMessageFor(model => model.TinhTrang)
+        </div>*@
+         <div class="editor-label">
+            @Html.LabelFor(model => model.IsNew)
+        </div>
+        <div class="editor-field">
+            @Html.CheckBoxFor(model => model.IsNew)
+            @Html.ValidationMessageFor(model => model.IsNew)
+        </div>
+                 <div class="editor-label">
+            @Html.LabelFor(model => model.IsHot)
+        </div>
+        <div class="editor-field">
+            @Html.CheckBoxFor(model => model.IsHot)
+            @Html.ValidationMessageFor(model => model.IsHot)
+        </div>
+         <div class="editor-label">
+            @Html.LabelFor(model => model.Percent)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Percent)
+            @Html.ValidationMessageFor(model => model.Percent)
         </div>
         <div style="margin-top: 10px;">
             <table>

@@ -19,6 +19,7 @@
           <EntitySet Name="NguoiDung" EntityType="CameraShopModel.Store.NguoiDung" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="NhaSanXuat" EntityType="CameraShopModel.Store.NhaSanXuat" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="NhomNguoiDung" EntityType="CameraShopModel.Store.NhomNguoiDung" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Parameters" EntityType="CameraShopModel.Store.Parameters" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="SanPham" EntityType="CameraShopModel.Store.SanPham" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="sysdiagrams" EntityType="CameraShopModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="TaiKhoan" EntityType="CameraShopModel.Store.TaiKhoan" store:Type="Tables" Schema="dbo" />
@@ -212,6 +213,15 @@
           <Property Name="MaNhomNguoiDung" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="TenNhomNguoiDung" Type="nvarchar" Nullable="false" MaxLength="50" />
         </EntityType>
+        <EntityType Name="Parameters">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="LeftAd" Type="varchar(max)" />
+          <Property Name="RightAd" Type="varchar(max)" />
+          <Property Name="ContactContent" Type="varchar(max)" />
+        </EntityType>
         <EntityType Name="SanPham">
           <Key>
             <PropertyRef Name="MaSanPham" />
@@ -226,6 +236,10 @@
           <Property Name="SoLuong" Type="int" Nullable="false" />
           <Property Name="TinhTrang" Type="bit" />
           <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="IsNew" Type="bit" />
+          <Property Name="IsHot" Type="bit" />
+          <Property Name="Percent" Type="int" />
+          <Property Name="Gia2" Type="money" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -568,6 +582,7 @@
             <End Role="TaiKhoan" EntitySet="TaiKhoans" />
             <End Role="TinTuc" EntitySet="TinTucs" />
           </AssociationSet>
+          <EntitySet Name="Parameters" EntityType="CameraShopModel.Parameter" />
         </EntityContainer>
         <EntityType Name="AnhSanPham">
           <Key>
@@ -587,7 +602,7 @@
           <Property Name="CartID" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
           <Property Name="MaSanPham" Type="Int32" Nullable="false" />
           <Property Name="Count" Type="Int32" Nullable="false" />
-          <Property Name="DateCreate" Type="DateTime" />
+          <Property Name="DateCreate" Type="DateTime" Precision="3" />
           <NavigationProperty Name="SanPham" Relationship="CameraShopModel.FK_Cart_SanPham" FromRole="Cart" ToRole="SanPham" />
         </EntityType>
         <EntityType Name="ChiTietDonDatHang">
@@ -631,7 +646,7 @@
           </Key>
           <Property Name="MaDonDatHang" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="MaNguoiDung" Type="Int32" Nullable="false" />
-          <Property Name="NgayLap" Type="DateTime" Nullable="false" />
+          <Property Name="NgayLap" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ThueSuat" Type="Int32" Nullable="false" />
           <Property Name="TongTien" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
           <Property Name="TinhTrang" Type="Boolean" />
@@ -656,7 +671,7 @@
           <Property Name="MaHoaDon" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="MaDonDatHang" Type="Int32" Nullable="false" />
           <Property Name="MaNhanVien" Type="Int32" Nullable="false" />
-          <Property Name="NgayLap" Type="DateTime" Nullable="false" />
+          <Property Name="NgayLap" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="DonDatHang" Relationship="CameraShopModel.FK_HoaDon_DonDatHang" FromRole="HoaDon" ToRole="DonDatHang" />
           <NavigationProperty Name="NguoiDung" Relationship="CameraShopModel.FK_HoaDon_NguoiDung" FromRole="HoaDon" ToRole="NguoiDung" />
         </EntityType>
@@ -667,8 +682,8 @@
           <Property Name="MaKhuyenMai" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TenKhuyenMai" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="true" />
           <Property Name="MoTa" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="NgayBatDau" Type="DateTime" Nullable="false" />
-          <Property Name="NgayKetThuc" Type="DateTime" Nullable="false" />
+          <Property Name="NgayBatDau" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="NgayKetThuc" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="SanPhams" Relationship="CameraShopModel.FK_SanPham_KhuyenMai" FromRole="KhuyenMai" ToRole="SanPham" />
         </EntityType>
         <EntityType Name="LoaiSanPham">
@@ -720,7 +735,7 @@
           <Property Name="MaKhuyenMai" Type="Int32" Nullable="false" />
           <Property Name="TenSanPham" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
           <Property Name="GiaBan" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
-          <Property Name="NgayDang" Type="DateTime" Nullable="false" />
+          <Property Name="NgayDang" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="SoLuong" Type="Int32" Nullable="false" />
           <Property Name="TinhTrang" Type="Boolean" />
           <NavigationProperty Name="AnhSanPhams" Relationship="CameraShopModel.FK_AnhSanPham_SanPham" FromRole="SanPham" ToRole="AnhSanPham" />
@@ -731,6 +746,10 @@
           <NavigationProperty Name="KhuyenMai" Relationship="CameraShopModel.FK_SanPham_KhuyenMai" FromRole="SanPham" ToRole="KhuyenMai" />
           <NavigationProperty Name="LoaiSanPham" Relationship="CameraShopModel.FK_SanPham_LoaiSanPham" FromRole="SanPham" ToRole="LoaiSanPham" />
           <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsNew" />
+          <Property Type="Boolean" Name="IsHot" />
+          <Property Type="Int32" Name="Percent" />
+          <Property Type="Decimal" Name="Gia2" Precision="19" Scale="4" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -749,8 +768,8 @@
           <Property Name="Username" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
           <Property Name="Password" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
           <Property Name="MaNguoiDung" Type="Int32" Nullable="false" />
-          <Property Name="NgayTao" Type="DateTime" Nullable="false" />
-          <Property Name="ThoiGianDangNhap" Type="DateTime" Nullable="false" />
+          <Property Name="NgayTao" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ThoiGianDangNhap" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="CauHoiBaoMat" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
           <Property Name="TraLoiCauHoiBaoMat" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="ChiTietNhomNguoiDungs" Relationship="CameraShopModel.FK_ChiTietNhomNguoiDung_TaiKhoan1" FromRole="TaiKhoan" ToRole="ChiTietNhomNguoiDung" />
@@ -774,7 +793,7 @@
           <Property Name="Username" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
           <Property Name="TieuDe" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
           <Property Name="NoiDung" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="NgayDang" Type="DateTime" Nullable="false" />
+          <Property Name="NgayDang" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="TaiKhoan" Relationship="CameraShopModel.FK_TinTuc_TaiKhoan" FromRole="TinTuc" ToRole="TaiKhoan" />
         </EntityType>
         <Association Name="FK_AnhSanPham_SanPham">
@@ -985,6 +1004,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Parameter">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="LeftAd" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="RightAd" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ContactContent" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1068,7 +1096,11 @@
             <ScalarProperty Name="TenNhomNguoiDung" ColumnName="TenNhomNguoiDung" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="SanPhams"><EntityTypeMapping TypeName="CameraShopModel.SanPham"><MappingFragment StoreEntitySet="SanPham">
-            <ScalarProperty Name="Description" ColumnName="Description" />
+            <ScalarProperty Name="Gia2" ColumnName="Gia2" />
+                <ScalarProperty Name="Percent" ColumnName="Percent" />
+                <ScalarProperty Name="IsHot" ColumnName="IsHot" />
+                <ScalarProperty Name="IsNew" ColumnName="IsNew" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="MaSanPham" ColumnName="MaSanPham" />
             <ScalarProperty Name="MaDongSanPham" ColumnName="MaDongSanPham" />
             <ScalarProperty Name="MaLoaiSanPham" ColumnName="MaLoaiSanPham" />
@@ -1107,6 +1139,16 @@
             <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
             <ScalarProperty Name="NgayDang" ColumnName="NgayDang" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Parameters">
+            <EntityTypeMapping TypeName="CameraShopModel.Parameter">
+              <MappingFragment StoreEntitySet="Parameters">
+                <ScalarProperty Name="ContactContent" ColumnName="ContactContent" />
+                <ScalarProperty Name="RightAd" ColumnName="RightAd" />
+                <ScalarProperty Name="LeftAd" ColumnName="LeftAd" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -1233,6 +1275,7 @@
           <ConnectorPoint PointX="10.3125" PointY="17.0625" />
           <ConnectorPoint PointX="10.5" PointY="17.25" />
         </AssociationConnector>
+        <EntityTypeShape EntityType="CameraShopModel.Parameter" Width="1.5" PointX="2.8413538536249447" PointY="6.4423561424214189" />
       </Diagram>
     </Diagrams>
   </Designer>

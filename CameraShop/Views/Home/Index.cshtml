@@ -3,10 +3,28 @@
     ViewBag.Title = "Index";
 }
 <div id="baner">
-    <img src="../../Content/images/n1.jpg" />
+@{
+
+    DirectoryInfo dir = new DirectoryInfo(Server.MapPath("/gallery"));
+    if(dir.Exists)
+    {
+        foreach (FileInfo file in dir.GetFiles())
+        {
+            if(file.FullName.EndsWith(".jpg")||file.FullName.EndsWith(".png"))
+            {
+                string url = file.FullName.Replace(Server.MapPath("/gallery"),"");
+                url = url.Replace("\\", "");
+                <img src="/gallery/@url" />
+            }
+            
+        }
+    }
+    
+}
+  @*  <img src="../../Content/images/n1.jpg" />
     <img src="../../Content/images/n2.jpg" />
     <img src="../../Content/images/n3.jpg" />
-    <img src="../../Content/images/n4.jpg" />
+    <img src="../../Content/images/n4.jpg" />*@
 </div>
 <br />
 <div class="cnt-r-cnt">

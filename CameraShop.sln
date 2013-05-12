@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CameraShop", "CameraShop\CameraShop.csproj", "{46E465F8-2191-435C-B146-D54C52A5BF5D}"
 EndProject
 Global

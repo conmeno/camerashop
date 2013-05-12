@@ -28,7 +28,7 @@ namespace CameraShop.Models
         public string TenNguoiDung { get; set; }
         [DisplayName("Giới tính")]
         public bool GioiTinh { get; set; }
-        [DisplayName("Địa chỉ")]
+        [DisplayName("Ðịa chỉ")]
         public string DiaChi { get; set; }
         [DisplayName("Điện thoại")]
         public string DienThoai { get; set; }
@@ -39,9 +39,9 @@ namespace CameraShop.Models
             ErrorMessage = "Email không hợp lệ")]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
-        [RegularExpression(@"[0-9]{2,4}",
+        [RegularExpression(@"[0-9]",
             ErrorMessage = "Năm sinh không hợp lệ")]
-        [DisplayName("Năm sinh")]
+        [DisplayName("Nam sinh")]
         public string NamSinh { get; set; }
     
         public virtual ICollection<DonDatHang> DonDatHangs { get; set; }

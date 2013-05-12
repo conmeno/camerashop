@@ -11,16 +11,16 @@ namespace CameraShop.Models
 {
     using System;
     using System.Collections.Generic;
-     using System.Web.Mvc;
-    public partial class TinTuc
-    {
-        public int MaTinTuc { get; set; }
-        public string Username { get; set; }
-        public string TieuDe { get; set; }
- [AllowHtml]
-        public string NoiDung { get; set; }
-        public System.DateTime NgayDang { get; set; }
+    using System.Web.Mvc;
     
-        public virtual TaiKhoan TaiKhoan { get; set; }
+    public partial class Parameter
+    {
+        public int ID { get; set; }
+         [AllowHtml]
+        public string LeftAd { get; set; }
+         [AllowHtml]
+        public string RightAd { get; set; }
+         [AllowHtml]
+        public string ContactContent { get; set; }
     }
 }

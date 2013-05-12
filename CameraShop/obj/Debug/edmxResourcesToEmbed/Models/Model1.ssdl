@@ -14,6 +14,7 @@
     <EntitySet Name="NguoiDung" EntityType="CameraShopModel.Store.NguoiDung" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="NhaSanXuat" EntityType="CameraShopModel.Store.NhaSanXuat" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="NhomNguoiDung" EntityType="CameraShopModel.Store.NhomNguoiDung" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Parameters" EntityType="CameraShopModel.Store.Parameters" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="SanPham" EntityType="CameraShopModel.Store.SanPham" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="sysdiagrams" EntityType="CameraShopModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="TaiKhoan" EntityType="CameraShopModel.Store.TaiKhoan" store:Type="Tables" Schema="dbo" />
@@ -207,6 +208,15 @@
     <Property Name="MaNhomNguoiDung" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="TenNhomNguoiDung" Type="nvarchar" Nullable="false" MaxLength="50" />
   </EntityType>
+  <EntityType Name="Parameters">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="LeftAd" Type="varchar(max)" />
+    <Property Name="RightAd" Type="varchar(max)" />
+    <Property Name="ContactContent" Type="varchar(max)" />
+  </EntityType>
   <EntityType Name="SanPham">
     <Key>
       <PropertyRef Name="MaSanPham" />
@@ -221,6 +231,10 @@
     <Property Name="SoLuong" Type="int" Nullable="false" />
     <Property Name="TinhTrang" Type="bit" />
     <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="IsNew" Type="bit" />
+    <Property Name="IsHot" Type="bit" />
+    <Property Name="Percent" Type="int" />
+    <Property Name="Gia2" Type="money" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>

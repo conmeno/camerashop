@@ -29,7 +29,8 @@
         <div style="display: none; background-color: #F2F2F2;">
             <div id="MessageBox" style="padding: 20px; background-color: #F2F2F2;">
                 <div style="color: Orange; font-size: 14pt; font-weight: bold;">
-                    Thông báo từ CameraShop</div>
+                    Thông báo từ CameraShop
+                </div>
                 <h3>@TempData["myMessage"].ToString()</h3>
             </div>
         </div>
@@ -37,140 +38,187 @@
         }
     }
     @* message box*@
-    <div id="wrapper">
-        <div class="header">
-            <a href="#">
-                <img class="left no-border" src="../../Content/images/logo2.png" /></a>
-            <div class="cnt-r-top">
-                @* begin Cart*@
-                @{Html.RenderAction("CartSummary", "ShoppingCart");}
-                @* end Cart*@
-                <div class="cart1">
-                    <div style="float: left; padding: 3px 4px;">
-                        <img src="../../Content/images/login-1.png" />
-                    </div>
-                    <div style="float: left; padding-top: 6px;">
-                        @{Html.RenderAction("Login", "TaiKhoan");}
-                    </div>
-                    @{if (Session["UserName"] == null)
-                      {
-                        <div style="margin-left: 10px; float: left; padding-top: 6px;">
-                            @Html.ActionLink("Đăng ký", "", "DangKy")
-                        </div>
+    <div id="main-wrapper">
+        <div class="leftad">
 
-                      }
-
-                      else
-                      {
-                        <div style="margin-left: 10px; float: left; padding-top: 6px;">
-                            Xin chào @Html.ActionLink(Session["TenNguoiDung"].ToString(), "AccountInfo", "TaiKhoan", new { id = Session["UserName"] }, "")
+            @{
+                Html.RenderAction("ShowLeft", "Param");
+            }
+        </div>
+        <div id="wrapper">
+            <div class="header">
+                <a href="/">
+                    <img class="left no-border" src="../../Content/images/logo2.png" /></a>
+                <div class="cnt-r-top">
+                    @* begin Cart*@
+                    @{Html.RenderAction("CartSummary", "ShoppingCart");}
+                    @* end Cart*@
+                    <div class="cart1">
+                        <div style="float: left; padding: 3px 4px;">
+                            <img src="../../Content/images/login-1.png" />
                         </div>
-                          if (Session["IsAdmin"].ToString() == "1")
+                        <div style="float: left; padding-top: 6px;">
+                            @{Html.RenderAction("Login", "TaiKhoan");}
+                        </div>
+                        @{if (Session["UserName"] == null)
                           {
-                        <div style="margin-left: 10px; float: left; padding-top: 6px;">
-                            <a href="@Url.Content("~/Admin")">Trang quản lý</a>
-                        </div>
-                          }
-                      }
+                            <div style="margin-left: 10px; float: left; padding-top: 6px;">
+                                @Html.ActionLink("Đăng ký", "", "DangKy")
+                            </div>
 
-                    }
-                    <div class="clear">
+                          }
+
+                          else
+                          {
+                            <div style="margin-left: 10px; float: left; padding-top: 6px;">
+                                Xin chào @Html.ActionLink(Session["TenNguoiDung"].ToString(), "AccountInfo", "TaiKhoan", new { id = Session["UserName"] }, "")
+                            </div>
+                              if (Session["IsAdmin"].ToString() == "1")
+                              {
+                            <div style="margin-left: 10px; float: left; padding-top: 6px;">
+                                <a href="@Url.Content("~/Admin")">Trang quản lý</a>
+                            </div>
+                              }
+                          }
+
+                        }
+                        <div class="clear">
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="menu">
-            <div class="lmn">
-                <div class="rmn">
-                    <ul>
-                        <li class="pad-10px"><a href="@Url.Content("~")">&nbsp;&nbsp;&nbsp;Trang Chủ&nbsp;&nbsp;&nbsp;</a>
-                        </li>
-                        <li>
-                            <img src="../../Content/images/line.jpg" /></li>
-                        <li class="pad-10px"><a href="@Url.Content("~/DanhSachSanPham/SanPhamMoiVe")">Sản phẩm
-                            mới</a></li>
-                        @*    <li>
+            <div class="menu">
+                <div class="lmn">
+                    <div class="rmn">
+                        <ul>
+                            <li class="pad-10px"><a href="@Url.Content("~")">&nbsp;&nbsp;&nbsp;Trang Chủ&nbsp;&nbsp;&nbsp;</a>
+                            </li>
+                            <li>
+                                <img src="../../Content/images/line.jpg" /></li>
+                            <li class="pad-10px"><a href="@Url.Content("~/DanhSachSanPham/SanPhamMoiVe")">Sản phẩm
+                                mới</a></li>
+                            @*    <li>
                             <img src="../../Content/images/line.jpg" /></li>
                         <li class="pad-10px"><a href="@Url.Content("~/DanhSachSanPham/LoaiSanPham/2")">Máy Quay</a></li>*@
-                        <li>
-                            <img src="../../Content/images/line.jpg" /></li>
-                        <li class="pad-10px"><a href="http://www.facebook.com">Facebook</a></li>
-                        <li>
-                            <img src="../../Content/images/line.jpg" /></li>
-                        <li class="pad-10px"><a href="@Url.Content("~/XemKhuyenMai")">Khuyến mãi</a> </li>
-                        <li>
-                            <img src="../../Content/images/line.jpg" /></li>
-                        <li class="pad-10px"><a href="@Url.Content("~/XemTinTuc")">Tin Tức</a> </li>
-                        <li>
-                            <img src="../../Content/images/line.jpg" /></li>
-                        <li class="pad-10px"><a href="@Url.Content("~/LienHe")">Liên hệ</a> </li>
-                    </ul>
+                            <li>
+                                <img src="../../Content/images/line.jpg" /></li>
+                            <li class="pad-10px"><a href="http://www.facebook.com">Facebook</a></li>
+                            <li>
+                                <img src="../../Content/images/line.jpg" /></li>
+                            <li class="pad-10px"><a href="@Url.Content("~/XemKhuyenMai")">Khuyến mãi</a> </li>
+                            <li>
+                                <img src="../../Content/images/line.jpg" /></li>
+                            <li class="pad-10px"><a href="@Url.Content("~/XemTinTuc")">Tin Tức</a> </li>
+                            <li>
+                                <img src="../../Content/images/line.jpg" /></li>
+                            <li class="pad-10px"><a href="@Url.Content("~/LienHe")">Liên hệ</a> </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="h-10">
-        </div>
-        <div class="content">
-            <div class="cnt-left">
-                <div class="menu-left">
-                    <div class="mn-l-top">
-                    </div>
-                    <div class="mn-l-ct">
-                        @{
-                            Html.RenderAction("LoadLoaiSanPhams", "LoaiSanPham");
-                        }
-                    </div>
-                    <div class="mn-l-bot">
-                    </div>
-                </div>
-                <br />
-                <div class="sp">
-                    <div class="sp-top">
-                        <div class="font-mn-left">
-                            TÌM KIẾM
+            <div class="h-10">
+            </div>
+            <div class="content">
+                <div class="cnt-left">
+                    <div class="menu-left">
+                        <div class="mn-l-top">
                         </div>
-                    </div>
-                    <div class="sp-ct">
-                        <div class="support">
-                            <form action="@Url.Action("Search", "DanhSachSanPham")" method="post">
-                            <div>
-                                Tìm theo:</div>
+                        <div class="mn-l-ct">
                             @{
-                                List<SelectListItem> items = new List<SelectListItem>();
-                                items.Add(new SelectListItem
-                                {
-                                    Text = "    Tên sản phẩm",
-                                    Value = "1",
-                                    Selected = true
-                                });
-
-                                items.Add(new SelectListItem
-                                {
-                                    Text = "    Giá",
-                                    Value = "2"
-                                });
-                                @Html.DropDownList("TypeSearch", items);
+                                Html.RenderAction("LoadLoaiSanPhams", "LoaiSanPham");
                             }
-                            @Html.Editor("SearchKey")
-                            <input type="submit" value="Tìm" name="search" />
-                            @*<img style="padding: 6px" src="../../Content/images/search-button.gif" />*@
-                            </form>
+                        </div>
+                        <div class="mn-l-bot">
                         </div>
                     </div>
-                    <div class="sp-bot">
-                    </div>
-                </div>
-                <br />
-                <div class="sp">
-                    <div class="sp-top">
-                        <div class="font-mn-left">
-                            SẢN PHẨM MỚI
+                    <br />
+                    <div class="sp">
+                        <div class="sp-top">
+                            <div class="font-mn-left">
+                                TÌM KIẾM
+                            </div>
+                        </div>
+                        <div class="sp-ct">
+                            <div class="support">
+                                <form action="@Url.Action("Search", "DanhSachSanPham")" method="post">
+                                    <div>
+                                        Tìm theo:
+                                    </div>
+                                    @{
+                                        List<SelectListItem> items = new List<SelectListItem>();
+                                        items.Add(new SelectListItem
+                                        {
+                                            Text = "    Tên sản phẩm",
+                                            Value = "1",
+                                            Selected = true
+                                        });
+
+                                        items.Add(new SelectListItem
+                                        {
+                                            Text = "    Giá",
+                                            Value = "2"
+                                        });
+                                        @Html.DropDownList("TypeSearch", items);
+                                    }
+                                    @Html.Editor("SearchKey")
+                                    <input type="submit" value="Tìm" name="search" />
+                                    @*<img style="padding: 6px" src="../../Content/images/search-button.gif" />*@
+                                </form>
+                            </div>
+                        </div>
+                        <div class="sp-bot">
                         </div>
                     </div>
-                    <div class="sp-ct">
-                        <div class="img-sp">
-                            <marquee scrollamount="1" truespeed="truespeed" scrolldelay="30" onmouseout="start();"
-                                onmouseover="stop();" direction="up" style="height: 300px">
+                    <br />
+                    <div class="sp">
+                        <div class="sp-top">
+                            <div class="font-mn-left">
+                                HỖ TRỢ TRỰC TUYẾN
+                            </div>
+                        </div>
+                        <div class="sp-ct">
+                            <div class="img-sp">
+                                <div class="support">
+                                    <div style="color:#ff6a00;margin-bottom:8px;">Bùi Thị Miền</div>
+                                    <a href="ymsgr:sendim?lucky2410h">
+                                        <img style="border: none" alt="lucky2410h@yahoo.com" src="http://opi.yahoo.com/online?u=lucky2410h&m=g&t=14"
+                                            border="0" width="90"></a>
+                                    <br />
+                                    <br />
+
+                                    @*begin skype*@
+                                    <script type="text/javascript" src="http://cdn.dev.skype.com/uri/skype-uri.js"></script>
+                                    <br />
+                                    <div style="color:#ff6a00;">Bùi Thị Miền</div>
+                                    <div id="SkypeButton_Dropdown_mienbt_1">
+                                        <script type="text/javascript">
+                                            Skype.ui({
+                                                "name": "dropdown",
+                                                "element": "SkypeButton_Dropdown_mienbt_1",
+                                                "participants": ["mienbt"],
+                                                "imageSize": 32
+                                            });
+                                        </script>
+                                    </div>
+                                    @*end skype*@
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sp-bot">
+                        </div>
+                    </div>
+                    <br />
+                    
+                    <div class="sp">
+                        <div class="sp-top">
+                            <div class="font-mn-left">
+                                SẢN PHẨM MỚI
+                            </div>
+                        </div>
+                        <div class="sp-ct">
+                            <div class="img-sp">
+                                <marquee scrollamount="1" truespeed="truespeed" scrolldelay="30" onmouseout="start();"
+                                    onmouseover="stop();" direction="up" style="height: 300px">
                                   @*begin sanphammoi*@
 
                                   @{
@@ -178,47 +226,34 @@
                                    }
                                 @*begin sanphammoi*@
                           </marquee>
-                            <br />
-                        </div>
-                    </div>
-                    <div class="sp-bot">
-                    </div>
-                </div>
-                <br />
-                <div class="sp">
-                    <div class="sp-top">
-                        <div class="font-mn-left">
-                            HỖ TRỢ TRỰC TUYẾN
-                        </div>
-                    </div>
-                    <div class="sp-ct">
-                        <div class="img-sp">
-                            <div class="support">
-                                <a href="ymsgr:sendim?tram_ngoc98">
-                                    <img style="border: none" alt="tram_ngoc98@yahoo.com" src="http://opi.yahoo.com/online?u=tram_ngoc98&m=g&t=14"
-                                        border="0" width="90"></a>
-                                <br />
                                 <br />
                             </div>
                         </div>
-                    </div>
-                    <div class="sp-bot">
+                        <div class="sp-bot">
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="cnt-right">
-                @*Content*@
-                @RenderBody()
-                @*end content*@
-            </div>
-            <div class="clr">
+                <div class="cnt-right">
+                    @*Content*@
+                    @RenderBody()
+                    @*end content*@
+                </div>
+                <div class="clr">
+                </div>
             </div>
         </div>
+        <div class="rightad">
+            @{
+                Html.RenderAction("ShowRight", "Param");
+            }
+        </div>
     </div>
+
     <br />
     <div class="footer">
         <p>
-            Men's Shopping web development © All rights reserved</p>
+            Men's Shopping web development © All rights reserved
+        </p>
     </div>
 </body>
 </html>

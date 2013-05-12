@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CameraShop.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,10 +11,15 @@ namespace CameraShop.Controllers
     {
         //
         // GET: /LienHe/
+        private CameraShopEntities db = new CameraShopEntities();
 
         public ActionResult Index()
         {
-            return View();
+            Parameter parameter = db.Parameters.Find(1);
+            return View(parameter);
+
+
+           
         }
 
     }

@@ -1,0 +1,30 @@
+﻿@model CameraShop.Models.Parameter
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Parameter</legend>
+
+    <div class="display-label">LeftAd</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LeftAd)
+    </div>
+
+    <div class="display-label">RightAd</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RightAd)
+    </div>
+
+    <div class="display-label">ContactContent</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ContactContent)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

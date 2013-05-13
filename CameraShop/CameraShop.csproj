@@ -511,6 +511,7 @@
     <Content Include="Views\Param\Delete.cshtml" />
     <Content Include="Views\Param\ShowLeft.cshtml" />
     <Content Include="Views\Param\ShowRight.cshtml" />
+    <Content Include="Views\DanhSachSanPham\hot.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

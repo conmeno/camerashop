@@ -22,6 +22,7 @@
                         </div>
                         @if (item.AnhSanPhams.Count > 0)
                         {
+                            //begin update
                             if (item.IsNew)
                             { 
                             <div class="isnew">
@@ -35,6 +36,8 @@
                             -@item.Percent %
                             </div>
                             }
+                            
+                            //end update
                             string UrlImg = item.AnhSanPhams.ToList()[0].URL;
 
                             <a href="@Url.Content("~/DanhSachSanPham/Details/" + @item.MaSanPham)">

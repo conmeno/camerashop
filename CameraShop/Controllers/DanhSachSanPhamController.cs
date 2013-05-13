@@ -46,7 +46,10 @@ namespace CameraShop.Controllers
         {
             return View(db.SanPhams.OrderByDescending(x => x.NgayDang).ToList());
         }
-
+        public ActionResult hot()
+        {
+            return View(db.SanPhams.Where(x=>x.IsHot==true).ToList());
+        }
         public ViewResult Search(FormCollection form)
         {
             string key;

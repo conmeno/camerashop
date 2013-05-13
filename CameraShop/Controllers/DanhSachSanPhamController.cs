@@ -40,11 +40,12 @@ namespace CameraShop.Controllers
         public ActionResult SanPhamMoi()
         {
             return PartialView(db.SanPhams.OrderByDescending(x => x.NgayDang).ToList());
+           
         }
 
         public ActionResult SanPhamMoiVe()
         {
-            return View(db.SanPhams.OrderByDescending(x => x.NgayDang).ToList());
+            return View(db.SanPhams.Where(x => x.IsNew == true).ToList());
         }
         public ActionResult hot()
         {

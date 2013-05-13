@@ -1,13 +1,14 @@
 ﻿@model IEnumerable<CameraShop.Models.SanPham>
+
 @{
-    ViewBag.Title = "Search";
+    ViewBag.Title = "hot";
 }
-<br />
+
 <div class="cnt-r-cnt">
     <div class="cnt-r-cnt-l">
         <div class="sanphammoi">
             <div class="top-sp-moi">
-                S?n ph?m m?i
+                Sản phẩm được nhiều người quan tâm
             </div>
             <div class="bot-sp-moi">
                 @{int count = 0;
@@ -53,7 +54,7 @@
                            {
                            
                                 @item.Gia2.ToString("##,#") 
-                            <span>VNÐ</span>
+                            <span>VNĐ</span>
                             
                            }
                            else
@@ -63,7 +64,7 @@
                         }
                         </div>
                         <div class="price">
-                            @item.GiaBan.ToString("##,#") VNÐ
+                            @item.GiaBan.ToString("##,#") VNĐ
                         </div>
                         <a href="">
                             <img class="no-border" src="../../Content/images/btn_cart.png" /></a>

@@ -66,12 +66,28 @@
             @Html.EditorFor(model => model.TenSanPham)
             @Html.ValidationMessageFor(model => model.TenSanPham)
         </div>
+
+         <div class="editor-label">
+            @Html.LabelFor(model => model.SoLuong)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SoLuong)
+            @Html.ValidationMessageFor(model => model.SoLuong)
+        </div>
+
         <div class="editor-label">
             @Html.LabelFor(model => model.GiaBan)
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.GiaBan)
             @Html.ValidationMessageFor(model => model.GiaBan)
+        </div>
+          <div class="editor-label">
+            @Html.LabelFor(model => model.Gia2)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Gia2)
+            @Html.ValidationMessageFor(model => model.Gia2)
         </div>
           <div class="editor-label">
             @Html.LabelFor(model => model.Percent)
@@ -87,13 +103,7 @@
             @Html.EditorFor(model => model.NgayDang)
             @Html.ValidationMessageFor(model => model.NgayDang)
         </div>*@
-        <div class="editor-label">
-            @Html.LabelFor(model => model.SoLuong)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.SoLuong)
-            @Html.ValidationMessageFor(model => model.SoLuong)
-        </div>
+       
         <div class="editor-label">
             @Html.LabelFor(model => model.TinhTrang)
         </div>

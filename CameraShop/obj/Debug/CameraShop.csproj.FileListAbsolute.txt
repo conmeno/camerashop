@@ -32,4 +32,3 @@ E:\GitHubApp\Shopping\CameraShop\bin\EntityFramework.xml
 E:\GitHubApp\Shopping\CameraShop\obj\Debug\CameraShop.dll
 E:\GitHubApp\Shopping\CameraShop\obj\Debug\CameraShop.pdb
 E:\GitHubApp\Shopping\CameraShop\obj\Debug\CameraShop.csprojResolveAssemblyReference.cache
-D:\CameraShop\CameraShop\obj\Debug\CameraShop.csprojResolveAssemblyReference.cache

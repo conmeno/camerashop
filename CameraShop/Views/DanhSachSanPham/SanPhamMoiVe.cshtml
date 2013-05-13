@@ -33,10 +33,10 @@
                             if (item.Percent != int.MinValue && item.Percent > 0)
                             {
                             <div class="ispercent">
-                            -@item.Percent %
+                                -@item.Percent %
                             </div>
                             }
-                            
+
                             //end update
                             string UrlImg = item.AnhSanPhams.ToList()[0].URL;
 
@@ -48,17 +48,31 @@
                             <a href="@Url.Content("~/DanhSachSanPham/Details/" + @item.MaSanPham)">
                                 <img class='border-img' src='/Content/images/no-images.png' /></a>
                         }
-                        <div class="name">
+                         <div class="price" style="text-decoration:line-through;">
+                        @{ if (item.Gia2 != 0 && item.Percent != int.MinValue && item.Percent > 0)
+                           {
+                           
+                                @item.Gia2.ToString("##,#") 
+                            <span>VNĐ</span>
+                            
+                           }
+                           else
+                           {
+                               <span>&nbsp;</span>
+                           }
+                        }
+                        </div>
+                        <div class="price">
                             @item.GiaBan.ToString("##,#") VNĐ
                         </div>
                         <a href="">
                             <img class="no-border" src="../../Content/images/btn_cart.png" /></a>
                     </div>
-                        if (count % 4 == 0)
-                        {
+                           if (count % 4 == 0)
+                           {
                     <div class="clear">
                     </div>
-                        }
+                           }
 
                 }
             </div>

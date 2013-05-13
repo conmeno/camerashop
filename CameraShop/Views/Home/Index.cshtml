@@ -31,7 +31,8 @@
     <div class="cnt-r-cnt-l">
         <div class="sanphammoi">
             <div class="top-sp-moi">
-                SẢN PHẨM BÁN CHẠY</div>
+                Tất cả sản phẩm
+            </div>
             <div class="bot-sp-moi">
                 @{int count = 0;
 
@@ -45,7 +46,22 @@
                         </div>
                         @if (item.AnhSanPhams.Count > 0)
                         {
+                            //begin update
+                            if (item.IsNew)
+                            { 
+                            <div class="isnew">
+                                <a href="#">
+                                    <img src="../../Content/images/new.png" /></a>
+                            </div>
+                            }
+                            if (item.Percent != int.MinValue && item.Percent > 0)
+                            {
+                            <div class="ispercent">
+                                -@item.Percent %
+                            </div>
+                            }
 
+                            //end update
                             string UrlImg = item.AnhSanPhams.ToList()[0].URL;
 
                             <a href="@Url.Content("~/DanhSachSanPham/Details/" + @item.MaSanPham)">
@@ -56,16 +72,31 @@
                             <a href="@Url.Content("~/DanhSachSanPham/Details/" + @item.MaSanPham)">
                                 <img class='border-img' src='/Content/images/no-images.png' /></a>
                         }
-                        <div class="name">
-                            @item.GiaBan.ToString("##,#") VNĐ</div>
+                         <div class="price" style="text-decoration:line-through;">
+                        @{ if (item.Gia2 != 0 && item.Percent != int.MinValue && item.Percent > 0)
+                           {
+                           
+                                @item.Gia2.ToString("##,#") 
+                            <span>VNÐ</span>
+                            
+                           }
+                           else
+                           {
+                               <span>&nbsp;</span>
+                           }
+                        }
+                        </div>
+                        <div class="price">
+                            @item.GiaBan.ToString("##,#") VNÐ
+                        </div>
                         <a href="">
                             <img class="no-border" src="../../Content/images/btn_cart.png" /></a>
                     </div>
-                        if (count % 4 == 0)
-                        {
+                           if (count % 4 == 0)
+                           {
                     <div class="clear">
                     </div>
-                        }
+                           }
 
                 }
             </div>

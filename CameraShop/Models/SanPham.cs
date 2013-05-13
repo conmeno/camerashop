@@ -43,7 +43,7 @@ namespace CameraShop.Models
         [DisplayName("Phần trăm giảm giá")]
         public Nullable<int> Percent { get; set; }
         [DisplayName("Giá chưa giảm")]
-        public Nullable<decimal> Gia2 { get; set; }
+        public decimal Gia2 { get; set; }
     
         public virtual ICollection<AnhSanPham> AnhSanPhams { get; set; }
         public virtual ICollection<Cart> Carts { get; set; }

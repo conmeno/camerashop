@@ -76,8 +76,14 @@ namespace CameraShop.Controllers
  
         public ActionResult Edit(int id)
         {
-            Parameter parameter = db.Parameters.Find(id);
-            return View(parameter);
+            if (Session["isAdmin"] != null && Session["isAdmin"].ToString() == "1")
+            {
+                Parameter parameter = db.Parameters.Find(id);
+                return View(parameter);
+            }
+            TempData["myMessage"] = "Bạn cần đăng nhập bằng tài khoản Admin để xe được trang này (^_^)";
+            return Redirect("~");
+          
         }
 
         //

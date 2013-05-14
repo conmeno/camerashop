@@ -15,13 +15,13 @@
     <fieldset>
         <legend>LoaiSanPham</legend>
 
-        <div class="editor-label">
+        @*<div class="editor-label">
             @Html.LabelFor(model => model.MaLoaiSanPham)
         </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.MaLoaiSanPham)
-            @Html.ValidationMessageFor(model => model.MaLoaiSanPham)
-        </div>
+        <div class="editor-field">*@
+            @Html.HiddenFor(model => model.MaLoaiSanPham)
+        @*    @Html.ValidationMessageFor(model => model.MaLoaiSanPham)
+        </div>*@
 
         <div class="editor-label">
             @Html.LabelFor(model => model.TenLoaiSanPham)

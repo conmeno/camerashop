@@ -25,22 +25,25 @@ namespace CameraShop.Models
     
         public int MaSanPham { get; set; }
         public int MaDongSanPham { get; set; }
+        [DisplayName("Mả loại sp")]
         public int MaLoaiSanPham { get; set; }
         public int MaKhuyenMai { get; set; }
+         [DisplayName("Tên sản phẩm")]
         public string TenSanPham { get; set; }
 
         [DisplayName("Giá bán")]
         public decimal GiaBan { get; set; }
         public System.DateTime NgayDang { get; set; }
+         [DisplayName("Số lượng")]
         public int SoLuong { get; set; }
         public Nullable<bool> TinhTrang { get; set; }
  [AllowHtml]
         public string Description { get; set; }
-          [DisplayName("Sản phẩm mới")]
+          [DisplayName("Sản phẩm mới (show sản phẩm trong menu 'sản phẩm mới')")]
         public bool IsNew { get; set; }
-        [DisplayName("Sản phẩm hot")]
+        [DisplayName("Sản phẩm hot (show sản phẩm trong menu 'hot')")]
         public bool IsHot { get; set; }
-        [DisplayName("Phần trăm giảm giá")]
+        [DisplayName("Phần trăm giảm giá (% thể hiện thoy chứ không có tính giá giảm)")]
         public Nullable<int> Percent { get; set; }
         [DisplayName("Giá chưa giảm")]
         public decimal Gia2 { get; set; }

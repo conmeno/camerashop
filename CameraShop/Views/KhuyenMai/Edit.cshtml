@@ -36,14 +36,14 @@
     <fieldset>
         <legend>KhuyenMai</legend>
 
-        <div class="editor-label">
+      @*  <div class="editor-label">
             @Html.LabelFor(model => model.MaKhuyenMai)
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.MaKhuyenMai)
             @Html.ValidationMessageFor(model => model.MaKhuyenMai)
-        </div>
-
+        </div>*@
+         @Html.HiddenFor(model => model.MaKhuyenMai)
         <div class="editor-label">
             @Html.LabelFor(model => model.TenKhuyenMai)
         </div>

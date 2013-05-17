@@ -514,8 +514,8 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="String" Name="LeftAd" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="RightAd" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="ContactContent" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="LeftAd" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="RightAd" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ContactContent" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
 </Schema>

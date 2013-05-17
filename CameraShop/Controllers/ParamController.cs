@@ -18,7 +18,6 @@ namespace CameraShop.Controllers
 
         public ViewResult Index()
         {
-            
             return View(db.Parameters.ToList());
         }
 
@@ -31,22 +30,6 @@ namespace CameraShop.Controllers
             return View(parameter);
         }
 
-
-        [ChildActionOnly]
-        public ActionResult ShowLeft()
-        {
-
-            Parameter parameter = db.Parameters.Find(1);
-            return PartialView(parameter);
-        }
-        [ChildActionOnly]
-        public ActionResult ShowRight()
-        {
-
-            Parameter parameter = db.Parameters.Find(1);
-            return PartialView(parameter);
-        }
-       
         //
         // GET: /Param/Create
 
@@ -83,9 +66,21 @@ namespace CameraShop.Controllers
             }
             TempData["myMessage"] = "Bạn cần đăng nhập bằng tài khoản Admin để xe được trang này (^_^)";
             return Redirect("~");
-          
         }
+        [ChildActionOnly]
+        public ActionResult ShowLeft()
+        {
 
+            Parameter parameter = db.Parameters.Find(1);
+            return PartialView(parameter);
+        }
+        [ChildActionOnly]
+        public ActionResult ShowRight()
+        {
+
+            Parameter parameter = db.Parameters.Find(1);
+            return PartialView(parameter);
+        }
         //
         // POST: /Param/Edit/5
 

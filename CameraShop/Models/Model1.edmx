@@ -1009,9 +1009,9 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="LeftAd" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="RightAd" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="ContactContent" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="LeftAd" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="RightAd" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ContactContent" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1170,7 +1170,7 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="Model1">
+      <Diagram Name="Model1" ZoomLevel="75">
         <EntityTypeShape EntityType="CameraShopModel.AnhSanPham" Width="1.5" PointX="7.5" PointY="4.25" Height="1.7879850260416674" IsExpanded="true" />
         <EntityTypeShape EntityType="CameraShopModel.Cart" Width="1.5" PointX="7.5" PointY="6.875" Height="2.1725878906249996" IsExpanded="true" />
         <EntityTypeShape EntityType="CameraShopModel.ChiTietDonDatHang" Width="1.5" PointX="10.5" PointY="5.5" Height="2.3648893229166656" IsExpanded="true" />
@@ -1275,7 +1275,7 @@
           <ConnectorPoint PointX="10.3125" PointY="17.0625" />
           <ConnectorPoint PointX="10.5" PointY="17.25" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="CameraShopModel.Parameter" Width="1.5" PointX="2.8413538536249447" PointY="6.4423561424214189" />
+        <EntityTypeShape EntityType="CameraShopModel.Parameter" Width="1.5" PointX="10.5" PointY="8.25" />
       </Diagram>
     </Diagrams>
   </Designer>

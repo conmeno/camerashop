@@ -92,7 +92,8 @@ namespace CameraShop.Controllers
             if (ModelState.IsValid)
             {
                 tintuc.NgayDang = DateTime.Now.Date;
-                tintuc.TaiKhoan = db.TaiKhoans.Find("phuongnt");
+                //tintuc.TaiKhoan = db.TaiKhoans.Find("phuongnt");
+                tintuc.Username = "phuongnt";
                 db.Entry(tintuc).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

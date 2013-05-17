@@ -112,7 +112,6 @@
     </Compile>
     <Compile Include="Controllers\NhomNguoiDungController.cs" />
     <Compile Include="Controllers\ParamController.cs" />
-    <Compile Include="Controllers\ParameterController.cs" />
     <Compile Include="Controllers\QLDonDatHangController.cs" />
     <Compile Include="Controllers\SanPhamController.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
@@ -504,14 +503,12 @@
     <Content Include="Views\LoaiSanPham\LoadLoaiSanPhams.cshtml" />
     <Content Include="Views\DanhSachSanPham\SanPhamMoiMenu.cshtml" />
     <Content Include="Views\DanhSachSanPham\SanPhamMoiVe.cshtml" />
+    <Content Include="Views\DanhSachSanPham\hot.cshtml" />
     <Content Include="Views\Param\Index.cshtml" />
     <Content Include="Views\Param\Details.cshtml" />
     <Content Include="Views\Param\Create.cshtml" />
     <Content Include="Views\Param\Edit.cshtml" />
     <Content Include="Views\Param\Delete.cshtml" />
-    <Content Include="Views\Param\ShowLeft.cshtml" />
-    <Content Include="Views\Param\ShowRight.cshtml" />
-    <Content Include="Views\DanhSachSanPham\hot.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

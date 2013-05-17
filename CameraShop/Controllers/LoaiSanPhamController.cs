@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Web.Mvc;
 using CameraShop.Models;
+using System;
 
 namespace CameraShop.Controllers
 {
@@ -104,9 +105,14 @@ namespace CameraShop.Controllers
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
-            LoaiSanPham loaisanpham = db.LoaiSanPhams.Find(id);
-            db.LoaiSanPhams.Remove(loaisanpham);
-            db.SaveChanges();
+            try
+            {
+                LoaiSanPham loaisanpham = db.LoaiSanPhams.Find(id);
+                db.LoaiSanPhams.Remove(loaisanpham);
+                db.SaveChanges();
+            }
+            catch (Exception ex)
+            {}
             return RedirectToAction("Index");
         }
 

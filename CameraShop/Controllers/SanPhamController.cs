@@ -185,9 +185,13 @@ namespace CameraShop.Controllers
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
-            SanPham sanpham = db.SanPhams.Find(id);
-            db.SanPhams.Remove(sanpham);
-            db.SaveChanges();
+            try
+            {
+                SanPham sanpham = db.SanPhams.Find(id);
+                db.SanPhams.Remove(sanpham);
+                db.SaveChanges();
+            }catch(Exception ex)
+            {}
             return RedirectToAction("Index");
         }
 

@@ -213,9 +213,9 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="LeftAd" Type="varchar(max)" />
-    <Property Name="RightAd" Type="varchar(max)" />
-    <Property Name="ContactContent" Type="varchar(max)" />
+    <Property Name="LeftAd" Type="nvarchar(max)" />
+    <Property Name="RightAd" Type="nvarchar(max)" />
+    <Property Name="ContactContent" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="SanPham">
     <Key>
